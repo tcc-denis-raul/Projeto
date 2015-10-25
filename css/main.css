@@ -4,11 +4,11 @@
     Template Author : http://pixelhint.com
     Author Email    : contact@pixelhint.com
     License    		: http://pixelhint.com/license
-    
-    
+
+
     *****************************************
-    
-    
+
+
     - Fonts
     - Reset Default Foundation Styling
     - Hero
@@ -21,7 +21,7 @@
     - Google Map
     - Footer
     - Responsive CSS
-    
+
 */
 
 
@@ -168,6 +168,7 @@
 	background: transparent;
 	height: auto;
 	line-height: normal;
+  padding-top: 5px;
 }
 
 .top-bar .name,
@@ -210,7 +211,7 @@
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	   background-size: cover; 
+	   background-size: cover;
 }
 
 .hero .caption{
@@ -389,7 +390,7 @@ header .top-bar-section li:not(.has-form) a:not(.button):hover{
 }
 
 .services .btn_fancy{
-	margin-top: 100px;	
+	margin-top: 100px;
 }
 
 
@@ -430,11 +431,11 @@ header .top-bar-section li:not(.has-form) a:not(.button):hover{
 
 
 .btn_fancy .border_layer{
-	position: absolute;	
+	position: absolute;
 	top:0;
 	left: 0;
 	width: 100%;
-	height: 100%;	
+	height: 100%;
 	border: 1px dashed #000000;
 	-webkit-transition:all .2s ease-out;
 	     -o-transition:all .2s ease-out;
@@ -446,7 +447,7 @@ header .top-bar-section li:not(.has-form) a:not(.button):hover{
 	top: 4px;
 	left: -4px;
 	width: 100%;
-	height: 100%;	
+	height: 100%;
 	background: #fbdd90;
 	border-radius: 2px;
 	-webkit-transition:all .2s ease-out;
@@ -486,7 +487,7 @@ header .top-bar-section li:not(.has-form) a:not(.button):hover{
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	   background-size: cover; 
+	   background-size: cover;
 	text-align: center;
 }
 
@@ -511,7 +512,7 @@ header .top-bar-section li:not(.has-form) a:not(.button):hover{
 
 .quote hr{
 	display: inline-block;
-	padding: 0;	
+	padding: 0;
 	margin: 0;
 	border: 0;
 	width: 20px;
@@ -553,7 +554,7 @@ header .top-bar-section li:not(.has-form) a:not(.button):hover{
 	padding: 0 20px;
 	text-align: center;
 	float: left;
-} 
+}
 
 .slider_container{
 	max-width: 670px;
@@ -747,7 +748,7 @@ header .top-bar-section li:not(.has-form) a:not(.button):hover{
 
 #map_container .map_contacts span{
 	font-family: "raleway-bold", Helvetica, Arial, sans-serif;
-	font-weight:bold; 
+	font-weight:bold;
 	text-transform:uppercase;
 }
 
@@ -782,7 +783,7 @@ footer .copyrights p{
 footer .contact_details{
 	max-width: 430px;
 	float: right;
-} 
+}
 
 footer .social{
 	width: 130px;
@@ -942,5 +943,17 @@ footer p{
 		right: 40px;
 		bottom: 40px;
 		margin-top: -22px;
-	}	
+	}
 }
+
+/*   End-Responsive CSS    */
+
+/*    Novas Alterações Desktop    */
+.top-bar-section .has-dropdown>a:after {
+  margin-top: -17px;
+  margin-right: 40px;
+}
+/*    Fim Novas Alterações Desktop    */
+
+/* Novas Alterações Mobile */
+/* Fim Novas Alterações Mobile*/
