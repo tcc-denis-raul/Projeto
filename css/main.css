@@ -152,7 +152,6 @@
 	padding: 0 2rem 0 0.9375rem;
 }
 
-
 .top-bar,
 .top-bar-section li:not(.has-form) a:not(.button),
 .top-bar-section li:not(.has-form) a:not(.button):hover,
@@ -165,6 +164,11 @@
 	padding: 0;
 }
 
+#curso {
+	background: transparent;
+	height: auto;
+	line-height: normal;
+}
 
 .top-bar .name,
 .top-bar .name h1,
@@ -303,7 +307,6 @@ header .top-bar-section ul li a{
 	margin-right: 30px;
 	letter-spacing: .5px;
 }
-
 
 header .top-bar-section ul li:last-child a{
 	margin-right: 0;
