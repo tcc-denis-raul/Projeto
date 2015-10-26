@@ -164,13 +164,6 @@
 	padding: 0;
 }
 
-#curso {
-	background: transparent;
-	height: auto;
-	line-height: normal;
-  padding-top: 5px;
-}
-
 .top-bar .name,
 .top-bar .name h1,
 .top-bar .name h2,
@@ -392,12 +385,6 @@ header .top-bar-section li:not(.has-form) a:not(.button):hover{
 .services .btn_fancy{
 	margin-top: 100px;
 }
-
-
-
-
-
-
 
 
 
@@ -952,6 +939,17 @@ footer p{
 .top-bar-section .has-dropdown>a:after {
   margin-top: -17px;
   margin-right: 40px;
+}
+
+#curso {
+	background: transparent;
+	height: auto;
+	line-height: normal;
+  	padding-top: 5px;
+}
+
+#modificar_nome{
+	color: white; 
 }
 /*    Fim Novas Alterações Desktop    */
 
