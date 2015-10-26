@@ -22,7 +22,7 @@
 
   <body>
     <!--  Start Hero Section  -->
-    <section class="hero">
+    <section class="cursos">
       <header>
         <div class="row">
 
@@ -58,21 +58,34 @@
         </div>
       </header>
 
-      <!-- Lista de cursos -->
-      <div class="Cursos">   
+      <!-- Titulo -->
+      <div>   
         <div><span>Cursos de Ingles:</span></div>
       </div>
       
-      <ul class="example-orbit" data-orbit>
+      <!-- Define algumas váriaveis básicas e realiza busca no bd -->
+      <?php 
+        $blocos = 8; //quantidade de blocos por pagina
+        $sql = "SELECT * FROM cursos WHERE  tipo = 1";
+        $resultado = pg_query($sql);
+        $qtd_linha = pg_num_rows($resultado);
+      ?>
+
+      <!-- Inicio do orbit: Slides -->
+      <ul class="example-orbit-content" data-orbit>
+        <!-- Carregar n paginas -->
+        <?php for($i = 0; $i < $qtd_linha / $blocos; $i++){?>
+          <li class="active" style="z-index:2; top: 15%;">
+            <!-- Para cada pagina monta um grid com $blocos cursos -->
+            <ul class="small-block-grid-2 8medium-block-grid-3 large-block-grid-4">
+              <?php for($j = 0; $j < $blocos; $j++) { 
+                if($linha = pg_fetch_assoc($resultado)){ ?>
+                  <li id="modificar_nome"><a href=<?=$linha['link']?>><?=$linha['nome']?></a></li>
+              <?php } } ?>
+            </ul>
+          </li>
+        <?php } ?>
         
-        <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-          <?php 
-            $sql = "SELECT * FROM cursos WHERE  tipo = 1";
-            $resultado = pg_query($sql);
-            while($linha = pg_fetch_assoc($resultado)){?>
-              <li id="modificar_nome"><a href=<?=$linha['link']?>><?=$linha['nome']?></a></li>
-            <?php } ?>
-        </ul>
       </ul>
 
     </section>
