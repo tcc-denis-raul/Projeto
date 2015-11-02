@@ -940,7 +940,7 @@ footer p{
 @media only screen and (max-width: 40em){
 
 	.orbit-container .orbit-slides-container {
-		padding-left:10px;
+		background-color: red;
 	  	list-style: none;
   		margin: 0;
   		position: relative;
@@ -1018,7 +1018,7 @@ footer p{
 @media only screen and (min-width: 64.063em) {
 
 	.orbit-container .orbit-slides-container {
-		padding-left: 10px;
+		background-color: red;
 	  	list-style: none;
   		margin: 0;
   		position: relative;
