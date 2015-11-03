@@ -71,12 +71,18 @@
       ?>
       
       <?php while($linha = pg_fetch_assoc($resultado)) { $Count++; ?>
-        <form data-abide method="post" action="Script/seleciona.php"> 
+        <form data-abide action="Script/seleciona.php" method="post" > 
           <div class="row">
             <div class="large-6 columns">
               <label><?=$Count?>. <?=$linha['pergunta']?></label>
-              <input type="checkbox" name=<?=$linha['item1']?> value=<?=$linha['item1']?> id=<?=$linha['item1']?>><label><?=$linha['item1']?></label>
-              <input type="checkbox" name=<?=$linha['item1']?> value=<?=$linha['item2']?> id=<?=$linha['item2']?>><label><?=$linha['item2']?></label>
+              <input type="checkbox" name = <?= preg_replace('/\s+/', '', $linha['item1']) ?> 
+                                    value = <?= preg_replace('/\s+/', '', $linha['item1']) ?> 
+                                       id = <?= preg_replace('/\s+/', '', $linha['item1']) ?> >
+                                        <label><?=$linha['item1']?></label>
+              <input type="checkbox" name = <?= preg_replace('/\s+/', '', $linha['item2']) ?> 
+                                    value = <?= preg_replace('/\s+/', '', $linha['item2']) ?> 
+                                       id = <?= preg_replace('/\s+/', '', $linha['item2']) ?> >
+                                        <label><?=$linha['item2']?></label>
             
             </div>
           </div>
