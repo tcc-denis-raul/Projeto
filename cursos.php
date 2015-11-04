@@ -1,7 +1,7 @@
 <!-- Lista todos os cursos presente no banco de dados -->
 
 <!-- Conectar ao banco de dados-->
-<?php 
+<?php
   include "Script/Conectar.php";
 ?>
 
@@ -59,12 +59,12 @@
       </header>
 
       <!-- Titulo -->
-      <div>   
+      <div>
         <div><span>Cursos de Ingles:</span></div>
       </div>
-      
+
       <!-- Define algumas váriaveis básicas e realiza busca no bd -->
-      <?php 
+      <?php
         $blocos = 8; //quantidade de blocos por pagina
         $sql = "SELECT * FROM cursos WHERE  tipo = 1";
         $resultado = pg_query($sql);
@@ -78,18 +78,18 @@
           <li class="active" style="z-index:2; top: 15%;">
             <!-- Para cada pagina monta um grid com $blocos cursos -->
             <ul class="small-block-grid-2 8medium-block-grid-3 large-block-grid-4">
-              <?php for($j = 0; $j < $blocos; $j++) { 
+              <?php for($j = 0; $j < $blocos; $j++) {
                 if($linha = pg_fetch_assoc($resultado)){ ?>
                   <li id="modificar_nome"><a href=<?=$linha['link']?>><?=$linha['nome']?></a></li>
               <?php } } ?>
             </ul>
           </li>
         <?php } ?>
-        
+
       </ul>
 
     </section>
-      
+
     <!--  Start Footer Section  -->
     <footer>
       <div class="row">
