@@ -153,6 +153,7 @@
 	height: auto;
 	line-height:normal;
 	padding: 0;
+  z-index: 100;
 }
 
 .top-bar .name,

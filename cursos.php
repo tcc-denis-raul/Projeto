@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/foundation.min.css" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/cursos.css" />
 
     <!--    Javascript files are placed before </body>    -->
   </head>
@@ -59,7 +60,7 @@
       </header>
 
       <!-- Titulo -->
-      <div>
+      <div class="course-type">
         <div><span>Cursos de Ingles:</span></div>
       </div>
 

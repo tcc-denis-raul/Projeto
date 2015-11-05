@@ -1,7 +1,7 @@
 <!-- Lista todos os cursos presente no banco de dados -->
 
 <!-- Conectar ao banco de dados-->
-<?php 
+<?php
   include "Script/Conectar.php";
 ?>
 
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/foundation.min.css" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/questionario.css" />
 
     <!--    Javascript files are placed before </body>    -->
   </head>
@@ -59,31 +60,31 @@
       </header>
 
       <!-- Titulo -->
-      <div>   
+      <div>
         <div><span>Questionário:</span></div>
       </div>
-      
+
       <!-- Define algumas váriaveis básicas e realiza busca no bd -->
-      <?php 
+      <?php
         $sql = "SELECT * FROM questionario WHERE  id_idioma = 1";
         $resultado = pg_query($sql);
         $Count = 0;
       ?>
-      
+
       <?php while($linha = pg_fetch_assoc($resultado)) { $Count++; ?>
-        <form data-abide action="Script/seleciona.php" method="post" > 
+        <form data-abide action="Script/seleciona.php" method="post" >
           <div class="row">
             <div class="large-6 columns">
               <label><?=$Count?>. <?=$linha['pergunta']?></label>
-              <input type="checkbox" name = <?= preg_replace('/\s+/', '', $linha['item1']) ?> 
-                                    value = <?= preg_replace('/\s+/', '', $linha['item1']) ?> 
+              <input type="checkbox" name = <?= preg_replace('/\s+/', '', $linha['item1']) ?>
+                                    value = <?= preg_replace('/\s+/', '', $linha['item1']) ?>
                                        id = <?= preg_replace('/\s+/', '', $linha['item1']) ?> >
                                         <label><?=$linha['item1']?></label>
-              <input type="checkbox" name = <?= preg_replace('/\s+/', '', $linha['item2']) ?> 
-                                    value = <?= preg_replace('/\s+/', '', $linha['item2']) ?> 
+              <input type="checkbox" name = <?= preg_replace('/\s+/', '', $linha['item2']) ?>
+                                    value = <?= preg_replace('/\s+/', '', $linha['item2']) ?>
                                        id = <?= preg_replace('/\s+/', '', $linha['item2']) ?> >
                                         <label><?=$linha['item2']?></label>
-            
+
             </div>
           </div>
       <?php } ?>
@@ -93,11 +94,11 @@
             </div>
           </div>
         </form>
-       
-      
+
+
 
     </section>
-      
+
     <!--  Start Footer Section  -->
     <footer>
       <div class="row">
