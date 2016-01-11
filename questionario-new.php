@@ -72,10 +72,10 @@
           <div class="large-12 columns">
             <label>Curso baseado em :
               <select>
-                <option value="husker">Texto</option>
-                <option value="starbuck">Video Aula</option>
-                <option value="hotdog">Exemplos</option>
-                <option value="apollo">Exercícios Interativos</option>
+                <option value="texto">Texto</option>
+                <option value="videoAula">Video Aula</option>
+                <option value="exemplo">Exemplos</option>
+                <option value="exercicioInterativo">Exercícios Interativos</option>
               </select>
             </label>
           </div>
@@ -84,12 +84,12 @@
           <div class="large-12 columns">
             <label>Preço
               <select>
-                <option value="husker">Grátis</option>
-                <option value="starbuck">Até 30 reais</option>
-                <option value="hotdog">De 31 a 60 reais</option>
-                <option value="apollo">De 61 a 100 reais</option>
-                <option value="apollo">De 101 a 150 reais</option>
-                <option value="apollo">Mais de 151 reais</option>
+                <option value="gratis">Grátis</option>
+                <option value="ate30">Até 30 reais</option>
+                <option value="31a60">De 31 a 60 reais</option>
+                <option value="61a100">De 61 a 100 reais</option>
+                <option value="101a150">De 101 a 150 reais</option>
+                <option value="151mais">Mais de 151 reais</option>
               </select>
             </label>
           </div>
@@ -98,9 +98,9 @@
           <div class="large-12 columns">
             <label>Dinâmica
               <select>
-                <option value="husker">Curso Livre</option>
-                <option value="starbuck">Tempo de Curso Definido</option>
-                <option value="hotdog">Data de Início Definida</option>
+                <option value="cursoLivre">Curso Livre</option>
+                <option value="tempoDefinido">Tempo de Curso Definido</option>
+                <option value="inicioDefinido">Data de Início Definida</option>
               </select>
             </label>
           </div>
@@ -109,11 +109,11 @@
           <div class="large-12 columns">
             <label>Plataforma
               <select>
-                <option value="husker">Android - Offline</option>
-                <option value="starbuck">Android - Online</option>
-                <option value="hotdog">IOS - Offline</option>
-                <option value="apollo">IOS - Online</option>
-                <option value="apollo">Desktop</option>
+                <option value="andOff">Android - Offline</option>
+                <option value="andOn">Android - Online</option>
+                <option value="iosOff">IOS - Offline</option>
+                <option value="iosOn">IOS - Online</option>
+                <option value="desktop">Desktop</option>
               </select>
             </label>
           </div>
@@ -122,9 +122,9 @@
           <div class="large-12 columns">
             <label>Extras
               <select>
-                <option value="husker">Seleção de Nível de conhecimento</option>
-                <option value="starbuck">Professor Disponível</option>
-                <option value="hotdog">Comunicação entre alunos</option>
+                <option value="selecaoNivel">Seleção de Nível de conhecimento</option>
+                <option value="professor">Professor Disponível</option>
+                <option value="comunicacaoAlunos">Comunicação entre alunos</option>
               </select>
             </label>
           </div>
