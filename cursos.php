@@ -2,7 +2,7 @@
 
 <!-- Conectar ao banco de dados-->
 <?php
-  include "Script/Conectar.php";
+include "Script/Conectar.php";
 ?>
 
 <!doctype html>
@@ -66,26 +66,29 @@
 
       <!-- Define algumas váriaveis básicas e realiza busca no bd -->
       <?php
-        $blocos = 8; //quantidade de blocos por pagina
-        $sql = "SELECT * FROM cursos WHERE  tipo = 1";
-        $resultado = pg_query($sql);
-        $qtd_linha = pg_num_rows($resultado);
-      ?>
+$blocos    = 8; //quantidade de blocos por pagina
+$sql       = "SELECT * FROM cursos WHERE  tipo = 1";
+$resultado = pg_query($sql);
+$qtd_linha = pg_num_rows($resultado);
+?>
 
       <!-- Inicio do orbit: Slides -->
       <ul class="example-orbit-content" data-orbit>
         <!-- Carregar n paginas -->
-        <?php for($i = 0; $i < $qtd_linha / $blocos; $i++){?>
+        <?php for ($i = 0; $i < $qtd_linha / $blocos; $i++) {
+    ?>
           <li class="active" style="z-index:2; top: 15%;">
             <!-- Para cada pagina monta um grid com $blocos cursos -->
             <ul class="small-block-grid-2 8medium-block-grid-3 large-block-grid-4">
-              <?php for($j = 0; $j < $blocos; $j++) {
-                if($linha = pg_fetch_assoc($resultado)){ ?>
-                  <li id="modificar_nome"><a href=<?=$linha['link']?>><?=$linha['nome']?></a></li>
-              <?php } } ?>
+              <?php for ($j = 0; $j < $blocos; $j++) {
+        if ($linha = pg_fetch_assoc($resultado)) {?>
+                  <li id="modificar_nome"><a href=<?=$linha['link'];?>><?=$linha['nome'];?></a></li>
+              <?php }}
+    ?>
             </ul>
           </li>
-        <?php } ?>
+        <?php }
+?>
 
       </ul>
 

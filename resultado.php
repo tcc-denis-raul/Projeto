@@ -1,8 +1,8 @@
-<!-- Lista todos os cursos presente no banco de dados -->
+<!--mostra os melhores cursos para curso-->
 
-<!-- Conectar ao banco de dados-->
 <?php
-  include "Script/Conectar.php";
+session_start();
+$top_cursos = $_SESSION['top_cursos_idioma'];
 ?>
 
 <!doctype html>
@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/foundation.min.css" />
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/questionario.css" />
 
     <!--    Javascript files are placed before </body>    -->
   </head>
@@ -33,7 +32,7 @@
             <!--    Start Logo    -->
             <ul class="title-area">
               <li class="name">
-                <a href="#" class="logo">
+                <a href="../index.html" class="logo">
                   <h1>paloma<span class="tld"> .com</span></h1>
                 </a>
               </li>
@@ -61,41 +60,43 @@
 
       <!-- Titulo -->
       <div>
-        <div><span>Questionário:</span></div>
+        <div><span>Melhores cursos de Ingles:</span></div>
       </div>
 
-      <!-- Define algumas váriaveis básicas e realiza busca no bd -->
+
+      <!-- Inicio do orbit: Slides
+      <ul class="example-orbit-content" data-orbit>
+        Carregar n paginas
+        <?php for ($i = 0; $i < $qtd_linha / $blocos; $i++) {
+    ?>
+          <li class="active" style="z-index:2; top: 15%;">
+            Para cada pagina monta um grid com $blocos cursos
+            <ul class="small-block-grid-2 8medium-block-grid-3 large-block-grid-4">
+              <?php for ($j = 0; $j < $blocos; $j++) {
+        if ($linha = pg_fetch_assoc($resultado)) {?>
+                  <li id="modificar_nome"><a href=<?=$linha['link'];?>><?=$linha['nome'];?></a></li>
+              <?php }}
+    ?>
+            </ul>
+          </li>
+        <?php }
+?>
+      </ul> -->
       <?php
-        $sql = "SELECT * FROM questionario WHERE  id_idioma = 1";
-        $resultado = pg_query($sql);
-        $Count = 0;
-      ?>
 
-      <?php while($linha = pg_fetch_assoc($resultado)) { $Count++; ?>
-        <form data-abide action="Script/seleciona.php" method="post" >
-          <div class="row">
-            <div class="large-6 columns">
-              <label><?=$Count?>. <?=$linha['pergunta']?></label>
-              <input type="checkbox" name = <?= preg_replace('/\s+/', '', $linha['item1']) ?>
-                                    value = <?= preg_replace('/\s+/', '', $linha['item1']) ?>
-                                       id = <?= preg_replace('/\s+/', '', $linha['item1']) ?> >
-                                        <label><?=$linha['item1']?></label>
-              <input type="checkbox" name = <?= preg_replace('/\s+/', '', $linha['item2']) ?>
-                                    value = <?= preg_replace('/\s+/', '', $linha['item2']) ?>
-                                       id = <?= preg_replace('/\s+/', '', $linha['item2']) ?> >
-                                        <label><?=$linha['item2']?></label>
-
-            </div>
-          </div>
-      <?php } ?>
-          <div class="row">
-            <div class="small-12 columns">
-              <button type="submit" class="button small">OK</button>
-            </div>
-          </div>
-        </form>
-
-
+if (sizeof($top_cursos) == 0) {?>
+      		 <div>
+        <div><span>Não encontrado nenhum curso</span></div>
+      </div>
+      	<?php }
+?>
+		      <?php
+foreach ($top_cursos as $curso => $ig) {?>
+			 <div>
+        <div><span><?=$curso;?></span></div>
+      </div>
+<?php }
+?>
 
     </section>
 

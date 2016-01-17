@@ -1,10 +1,9 @@
 <!--Script para conectar ao Banco de Dados -->
 <?php
-	$servidor = "localhost";
-	$port = 5432;
-	$user = "postgres";
-	$password = "postgres";
-	$db = "paloma";
-	$dbconn = pg_connect("host=$servidor port=$port dbname=$db user=$user password=$password") or die('connection failed');
+$base_nome      = "paloma";
+$colecao_cursos = "cursos_idiomas";
+
+$mongo_cliente = new MongoClient();
+$db            = $mongo_cliente->$base_nome;
 ?>
 
