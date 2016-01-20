@@ -1,5 +1,3 @@
-<!--mostra os melhores cursos para curso-->
-
 <?php
 session_start();
 $top_cursos = $_SESSION['top_cursos_idioma'];
