@@ -2,15 +2,12 @@
     <phpunit bootstrap="teste/bootstrap.php" colors="true">
         <testsuites>
             <testsuite name="Hello World Test Suite">
-                <directory>./Teste/</directory>
+                <directory>./Teste</directory>
             </testsuite>
         </testsuites>
         <filter>
             <whitelist>
-                <directory>./</directory>
-                <exclude>
-                    <directory>./Teste</directory>
-                </exclude>
+                <directory>./Script</directory>
             </whitelist>
         </filter>
     </phpunit>
