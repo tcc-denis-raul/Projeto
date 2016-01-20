@@ -1,0 +1,7 @@
+language: php
+
+php:
+  - 5.6
+  - 7.0
+
+script: phpunit --bootstrap src/Script/seleciona.php teste/script/selecionaTest.php
