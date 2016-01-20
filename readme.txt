@@ -1,3 +1,3 @@
 Projeto final dos alunos:
-	Denis Aoki
-	Raul Gabrich
+	- Denis Aoki
+	- Raul Gabrich
