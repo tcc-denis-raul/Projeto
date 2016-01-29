@@ -4,7 +4,6 @@ class MainTest extends PHPUnit_Framework_TestCase
     protected $backupGlobals = false;
     protected function setUp()
     {
-        $GLOBALS['dolar'] = "2.0";
     }
     public function testPossuiCaracteristicaNumber()
     {
@@ -133,15 +132,23 @@ class MainTest extends PHPUnit_Framework_TestCase
 
     public function testFaixaPrecoDolarAte30Validos()
     {
-        $a   = new Funcoes();
-        $vet = array(0.0);
-        $this->assertEquals(1, $a->faixaPreco($vet, "ate30", "dolar"));
-        $vet = array(14.5);
-        $this->assertEquals(1, $a->faixaPreco($vet, "ate30", "dolar"));
-        $vet = array(15.0);
-        $this->assertEquals(1, $a->faixaPreco($vet, "ate30", "dolar"));
-        $vet = array(16.0, -1.0, 11.0);
-        $this->assertEquals(1, $a->faixaPreco($vet, "ate30", "dolar"));
+        // $a           = new Funcoes();
+        $stub = $this->getMock('Funcoes');
+
+        // Configure the stub.
+        $stub->method('faixaPreco')
+            ->willReturn('2.0');
+        $this->assertEquals('2.0', $stub->getDolar);
+
+        // $a->dolar = "2.0";
+        // $vet      = array(0.0);
+        // $this->assertEquals(1, $a->faixaPreco($vet, "ate30", "dolar"));
+        // $vet = array(14.5);
+        // $this->assertEquals(1, $a->faixaPreco($vet, "ate30", "dolar"));
+        // $vet = array(15.0);
+        // $this->assertEquals(1, $a->faixaPreco($vet, "ate30", "dolar"));
+        // $vet = array(16.0, -1.0, 11.0);
+        // $this->assertEquals(1, $a->faixaPreco($vet, "ate30", "dolar"));
     }
     public function testFaixaPrecoDolarAte30Invalidos()
     {

@@ -1,28 +1,40 @@
-<!-- Lista todos os cursos presente no banco de dados -->
+<!DOCTYPE html>
 
-<!-- Conectar ao banco de dados-->
 <?php
-include "Script/Conectar.php";
+include_once "Script/bd.php";
+include_once "Script/verificaCaracteristica.php";
+$bd     = new BD;
+$cursos = $bd->find();
+$f      = new Funcoes;
 ?>
 
-<!doctype html>
-<html class="no-js" lang="en">
-  <head>
+<html lang="en">
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paloma - Porque aprender é uma experiência única</title>
 
-    <!--    Stylesheet Files    -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/foundation.min.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/cursos.css" />
 
-    <!--    Javascript files are placed before </body>    -->
-  </head>
+    <link rel="stylesheet" href="css/tabela/globals.css">
+    <link rel="stylesheet" href="css/tabela/typography.css">
+    <link rel="stylesheet" href="css/tabela/grid.css">
+    <link rel="stylesheet" href="css/tabela/ui.css">
+    <link rel="stylesheet" href="css/tabela/forms.css">
+    <link rel="stylesheet" href="css/tabela/orbit.css">
+    <link rel="stylesheet" href="css/tabela/reveal.css">
+    <link rel="stylesheet" href="css/tabela/mobile.css">
+    <link rel="stylesheet" href="css/tabela/app.css">
+    <link rel="stylesheet" href="css/tabela/responsive-tables.css">
+    <script src="js/tabela/jquery.min.js"></script>
+    <script src="js/tabela/responsive-tables.js"></script>
+</head>
 
-  <body>
-    <!--  Start Hero Section  -->
+<body>
     <section class="cursos">
       <header>
         <div class="row">
@@ -60,57 +72,80 @@ include "Script/Conectar.php";
       </header>
 
       <!-- Titulo -->
-      <div class="course-type">
+      <!-- <div class="course-type">
         <div><span>Cursos de Ingles:</span></div>
       </div>
 
-      <!-- Define algumas váriaveis básicas e realiza busca no bd -->
-      <?php
-$blocos    = 8; //quantidade de blocos por pagina
-$sql       = "SELECT * FROM cursos WHERE  tipo = 1";
-$resultado = pg_query($sql);
-$qtd_linha = pg_num_rows($resultado);
-?>
-
-      <!-- Inicio do orbit: Slides -->
-      <ul class="example-orbit-content" data-orbit>
-        <!-- Carregar n paginas -->
-        <?php for ($i = 0; $i < $qtd_linha / $blocos; $i++) {
-    ?>
-          <li class="active" style="z-index:2; top: 15%;">
-            <!-- Para cada pagina monta um grid com $blocos cursos -->
-            <ul class="small-block-grid-2 8medium-block-grid-3 large-block-grid-4">
-              <?php for ($j = 0; $j < $blocos; $j++) {
-        if ($linha = pg_fetch_assoc($resultado)) {?>
-                  <li id="modificar_nome"><a href=<?=$linha['link'];?>><?=$linha['nome'];?></a></li>
-              <?php }}
-    ?>
-            </ul>
-          </li>
+      <div>
+        <?php foreach ($cursos as $curso) {?>
+            <p><?=$curso['nome'];?></p>
         <?php }
 ?>
+      </div> -->
+      <div class="container">
+        <div class="row">
+            <div class="twelve columns">
+                <hr />
+                <h5>Cursos: </h5>
+                <table class="responsive">
+                    <tr>
+                        <th></th>
+                        <th colspan="4">Metodologia</th>
+                        <th rowspan="2">Preco</th>
+                        <th colspan="3">Dinamica</th>
+                        <th colspan="6">Plataforma</th>
+                        <th colspan="3">Extra</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th rowspan="2">Textos</tH>
+                        <th rowspan="2">Video aulas</tH>
+                        <th rowspan="2">Examplos</tH>
+                        <th rowspan="2">Exercícios interativos</tH>
 
-      </ul>
+                        <th rowspan="2">Curso Livre</tH>
+                        <th rowspan="2">Tempo Definido</t>
+                        <th rowspan="2">Início definido</tH>
+
+                        <th colspan="2">Android</tH>
+                        <th colspan="2">Ios</tH>
+                        <th colspan="2">Desktop</tH>
+
+                        <th rowspan="2">Seleção de nível</tH>
+                        <th rowspan="2">Professor</th>
+                        <th rowspan="2">Comunicação entre alunos</th>
+
+                    </tr>
+                    <tr>
+                        <th></th><th></th>
+                            <th>Online</th>
+                            <th>Offline</th>
+
+                            <th>Online</th>
+                            <th>Offline</th>
+
+                            <th>Online</th>
+                            <th>Offline</th>
+
+                    </tr>
+                    <?php foreach ($cursos as $curso) {
+    $curso_dados = $bd->findF(array('nome' => $curso['nome']));
+    foreach ($curso_dados as $um_curso) {?>
+                    <tr>
+                        <th><?=$um_curso['nome'];?></th>
+                        <th></th>
+                    </tr>
+    <?php }
+}
+?>
+                </table>
+
+            </div>
+        </div>
 
     </section>
-
-    <!--  Start Footer Section  -->
-    <footer>
-      <div class="row">
-
-        <!--    Start Copyrights    -->
-        <div class="small-12 medium-4 large-4 columns">
-          <div class="copyrights">
-            <a class="logo" href="#">
-              <h1>paloma<span class="tld"> .com</span></h1>
-            </a>
-            <p>Copyright © 20014-2015 pixelhint.</p>
-          </div>
-        </div>
-        <!--    End Copyrights    -->
-
-
-        <div class="small-12 medium-8 large-8 columns">
+    <!-- container -->
+    <div class="small-12 medium-8 large-8 columns">
           <div class="contact_details right">
             <nav class="social">
               <ul class="no-bullet">
@@ -157,5 +192,6 @@ $qtd_linha = pg_num_rows($resultado);
     <script type="text/javascript" src="js/map.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
-  </body>
+</body>
+
 </html>

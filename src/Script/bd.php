@@ -1,0 +1,26 @@
+<?php
+class BD
+{
+    private $base_nome      = "paloma";
+    private $colecao_cursos = "cursos_idiomas";
+    public function find()
+    {
+        $base          = $this->base_nome;
+        $colecao       = $this->colecao_cursos;
+        $mongo_cliente = new MongoClient();
+        $db            = $mongo_cliente->$base;
+        $cursos        = $db->$colecao->find();
+        $closed        = $mongo_cliente->close();
+        return $cursos;
+    }
+
+    public function findF($filtro)
+    {
+        $base          = $this->base_nome;
+        $colecao       = $this->colecao_cursos;
+        $mongo_cliente = new MongoClient();
+        $db            = $mongo_cliente->$base;
+        $cursos        = $db->$colecao->find($filtro);
+        return $cursos;
+    }
+}
