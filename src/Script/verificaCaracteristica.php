@@ -46,11 +46,8 @@ class Funcoes
         foreach ((array) $vet_bd as $valor_vet) {
             //dolar
             if ($moeda == "dolar") {
-                $cotacao = new Cotacao;
-                $dolar   = $cotacao->getDolar();
-                printf("a");
-                printf($dolar);
-                printf("a");
+                $cotacao   = new Cotacao;
+                $dolar     = $cotacao->getDolar();
                 $valor_vet = $valor_vet * $dolar;
             }
             if ($faixa == "151mais") {
