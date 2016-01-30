@@ -2,7 +2,7 @@
 
 <?php
 include_once "Script/bd.php";
-include_once "Script/verificaCaracteristica.php";
+include_once "Script/verifica_caracteristica.php";
 $bd     = new BD;
 $cursos = $bd->find();
 $f      = new Funcoes;

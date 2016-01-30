@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once "bd.php";
-include_once "verificaCaracteristica.php";
+include_once "verifica_caracteristica.php";
 
 $quantidade_cursos = 5;
 
