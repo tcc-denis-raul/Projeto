@@ -14,13 +14,13 @@ class BD
         return $cursos;
     }
 
-    public function findF($filtro)
+    public function findOne($filtro)
     {
         $base          = $this->base_nome;
         $colecao       = $this->colecao_cursos;
         $mongo_cliente = new MongoClient();
         $db            = $mongo_cliente->$base;
-        $cursos        = $db->$colecao->find($filtro);
+        $cursos        = $db->$colecao->findOne($filtro);
         return $cursos;
     }
 }

@@ -13,7 +13,7 @@ class Main
         // global $db, $colecao_cursos;
         if (!empty($_POST)) {
             $f  = new Funcoes;
-            $bd = new BancoDeDados;
+            $bd = new BD;
             //procura por todos os cursos
             $cursos = $bd->find();
             foreach ($cursos as $um_curso) {

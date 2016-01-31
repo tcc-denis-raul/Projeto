@@ -2,10 +2,9 @@
 
 <?php
 include_once "Script/bd.php";
-include_once "Script/verifica_caracteristica.php";
+include_once "Script/informacoes.php";
 $bd     = new BD;
 $cursos = $bd->find();
-$f      = new Funcoes;
 ?>
 
 <html lang="en">
@@ -91,53 +90,67 @@ $f      = new Funcoes;
                     <tr>
                         <th></th>
                         <th colspan="4">Metodologia</th>
-                        <th rowspan="2">Preco</th>
+                        <th rowspan="2" colspan="1">Preco</th>
                         <th colspan="3">Dinamica</th>
                         <th colspan="6">Plataforma</th>
                         <th colspan="3">Extra</th>
                     </tr>
                     <tr>
-                        <th></th>
-                        <th rowspan="2">Textos</tH>
-                        <th rowspan="2">Video aulas</tH>
-                        <th rowspan="2">Examplos</tH>
-                        <th rowspan="2">Exercícios interativos</tH>
+                        <th ></th>
+                        <th >Textos</th>
+                        <th >Video aulas</th>
+                        <th >Exemplos</th>
+                        <th >Exercícios interativos</th>
 
-                        <th rowspan="2">Curso Livre</tH>
-                        <th rowspan="2">Tempo Definido</t>
-                        <th rowspan="2">Início definido</tH>
+                        <th >Curso Livre</th>
+                        <th >Tempo Definido</t>
+                        <th >Início definido</th>
 
-                        <th colspan="2">Android</tH>
-                        <th colspan="2">Ios</tH>
-                        <th colspan="2">Desktop</tH>
+                        <th >Android - Online</th>
+                        <th >Android - Offline</th>
+                        <th >Ios - Online</th>
+                        <th >Ios - Offline</th>
+                        <th >Desktop - Online</th>
+                        <th >Desktop - Offline</th>
 
-                        <th rowspan="2">Seleção de nível</tH>
-                        <th rowspan="2">Professor</th>
-                        <th rowspan="2">Comunicação entre alunos</th>
-
+                        <th >Seleção de nível</th>
+                        <th >Professor</th>
+                        <th >Comunicação entre alunos</th>
                     </tr>
-                    <tr>
-                        <th></th><th></th>
-                            <th>Online</th>
-                            <th>Offline</th>
 
-                            <th>Online</th>
-                            <th>Offline</th>
-
-                            <th>Online</th>
-                            <th>Offline</th>
-
-                    </tr>
+                    
                     <?php foreach ($cursos as $curso) {
-    $curso_dados = $bd->findF(array('nome' => $curso['nome']));
-    foreach ($curso_dados as $um_curso) {?>
-                    <tr>
-                        <th><?=$um_curso['nome'];?></th>
-                        <th></th>
-                    </tr>
-    <?php }
-}
-?>
+                        $inf = new Informacoes;
+                        $resultado = $inf->getDados($curso['nome']);
+                    ?>
+                        <tr>
+                            <th ><?=$resultado['nome'];?></th>
+                            <th ><?=$resultado['texto'];?></th>
+                            <th ><?=$resultado['videoAula'];?></th>
+                            <th ><?=$resultado['exemplo'];?></th>
+                            <th ><?=$resultado['exercicioInterativo'];?></th>
+
+                            <th>Precos</th>
+
+                            <th ><?=$resultado['cursoLivre'];?></th>
+                            <th ><?=$resultado['tempoDefinido'];?></t>
+                            <th ><?=$resultado['inicioDefinido'];?></th>
+
+                            <th ><?=$resultado['andOff'];?></th>
+                            <th ><?=$resultado['andOn'];?></th>
+                            <th ><?=$resultado['iosOff'];?></th>
+                            <th ><?=$resultado['iosOn'];?></th>
+                            <th ><?=$resultado['desktopOff'];?></th>
+                            <th ><?=$resultado['desktopOn'];?></th>
+
+                            <th ><?=$resultado['selecaoNivel'];?></th>
+                            <th ><?=$resultado['professor'];?></th>
+                            <th ><?=$resultado['comunicacaoAlunos'];?></th>
+                        </tr>
+                    <?php } ?>
+
+                    
+
                 </table>
 
             </div>

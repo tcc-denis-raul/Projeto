@@ -1,4 +1,5 @@
 <?php
+include_once "Script/informacoes.php";
 session_start();
 $top_cursos = $_SESSION['top_cursos_idioma'];
 ?>
@@ -21,81 +22,133 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
   <body>
     <!--  Start Hero Section  -->
     <section class="cursos">
-      <header>
-        <div class="row">
+        <header>
+            <div class="row">
 
 
-          <nav class="top-bar" data-topbar role="navigation">
+              <nav class="top-bar" data-topbar role="navigation">
 
-            <!--    Start Logo    -->
-            <ul class="title-area">
-              <li class="name">
-                <a href="../index.html" class="logo">
-                  <h1>paloma<span class="tld"> .com</span></h1>
-                </a>
-              </li>
-                <span class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></span>
-              </li>
-            </ul>
-            <!--    End Logo    -->
+                <!--    Start Logo    -->
+                <ul class="title-area">
+                  <li class="name">
+                    <a href="../index.html" class="logo">
+                      <h1>paloma<span class="tld"> .com</span></h1>
+                    </a>
+                  </li>
+                    <span class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></span>
+                  </li>
+                </ul>
+                <!--    End Logo    -->
 
-            <!--    Start Navigation Menu    -->
-            <section class="top-bar-section" id="mean_nav">
-              <ul class="right">
-                <li class="has-dropdown">
-                  <a>Cursos</a>
-                  <ul class="dropdown">
-                    <li><a href="cursos.php" id="curso">Ingles</a></li>
+                <!--    Start Navigation Menu    -->
+                <section class="top-bar-section" id="mean_nav">
+                  <ul class="right">
+                    <li class="has-dropdown">
+                      <a>Cursos</a>
+                      <ul class="dropdown">
+                        <li><a href="cursos.php" id="curso">Ingles</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#connect">Login</a></li>
                   </ul>
-                </li>
-                <li><a href="#connect">Login</a></li>
-              </ul>
-            </section>
-            <!--    End Navigation Menu    -->
-          </nav>
-        </div>
-      </header>
+                </section>
+                <!--    End Navigation Menu    -->
+              </nav>
+            </div>
+        </header>
 
       <!-- Titulo -->
-      <div>
-        <div><span>Melhores cursos de Ingles:</span></div>
-      </div>
+        <div>
+            <div><span>Melhores cursos de Ingles:</span></div>
+        </div>
+
+        <?php
+            if (sizeof($top_cursos) == 0) { ?>
+      		     <div>
+                    <div><span>Não encontrado nenhum curso</span></div>
+                </div>
+        <?php } ?>
+
+        <div class="container">
+        <div class="row">
+            <div class="twelve columns">
+                <hr />
+                <h5>Cursos: </h5>
+                <table class="responsive">
+                    <tr>
+                        <th></th>
+                        <th colspan="4">Metodologia</th>
+                        <th rowspan="2" colspan="1">Preco</th>
+                        <th colspan="3">Dinamica</th>
+                        <th colspan="6">Plataforma</th>
+                        <th colspan="3">Extra</th>
+                    </tr>
+                    <tr>
+                        <th ></th>
+                        <th >Textos</th>
+                        <th >Video aulas</th>
+                        <th >Exemplos</th>
+                        <th >Exercícios interativos</th>
+
+                        <th >Curso Livre</th>
+                        <th >Tempo Definido</t>
+                        <th >Início definido</th>
+
+                        <th >Android - Online</th>
+                        <th >Android - Offline</th>
+                        <th >Ios - Online</th>
+                        <th >Ios - Offline</th>
+                        <th >Desktop - Online</th>
+                        <th >Desktop - Offline</th>
+
+                        <th >Seleção de nível</th>
+                        <th >Professor</th>
+                        <th >Comunicação entre alunos</th>
+                    </tr>
+
+                    
+                    <?php foreach ($top_cursos as $curso => $ig) {
+                        $inf = new Informacoes;
+                        $resultado = $inf->getDados($curso);
+                    ?>
+                        <tr>
+                            <th ><?=$resultado['nome'];?></th>
+                            <th ><?=$resultado['texto'];?></th>
+                            <th ><?=$resultado['videoAula'];?></th>
+                            <th ><?=$resultado['exemplo'];?></th>
+                            <th ><?=$resultado['exercicioInterativo'];?></th>
+
+                            <th>Precos</th>
+
+                            <th ><?=$resultado['cursoLivre'];?></th>
+                            <th ><?=$resultado['tempoDefinido'];?></t>
+                            <th ><?=$resultado['inicioDefinido'];?></th>
+
+                            <th ><?=$resultado['andOff'];?></th>
+                            <th ><?=$resultado['andOn'];?></th>
+                            <th ><?=$resultado['iosOff'];?></th>
+                            <th ><?=$resultado['iosOn'];?></th>
+                            <th ><?=$resultado['desktopOff'];?></th>
+                            <th ><?=$resultado['desktopOn'];?></th>
+
+                            <th ><?=$resultado['selecaoNivel'];?></th>
+                            <th ><?=$resultado['professor'];?></th>
+                            <th ><?=$resultado['comunicacaoAlunos'];?></th>
+                        </tr>
+                    <?php } ?>
+
+                </table>
+            </div>
+        </div>
 
 
-      <!-- Inicio do orbit: Slides
-      <ul class="example-orbit-content" data-orbit>
-        Carregar n paginas
-        <?php for ($i = 0; $i < $qtd_linha / $blocos; $i++) {
-    ?>
-          <li class="active" style="z-index:2; top: 15%;">
-            Para cada pagina monta um grid com $blocos cursos
-            <ul class="small-block-grid-2 8medium-block-grid-3 large-block-grid-4">
-              <?php for ($j = 0; $j < $blocos; $j++) {
-        if ($linha = pg_fetch_assoc($resultado)) {?>
-                  <li id="modificar_nome"><a href=<?=$linha['link'];?>><?=$linha['nome'];?></a></li>
-              <?php }}
-    ?>
-            </ul>
-          </li>
-        <?php }
-?>
-      </ul> -->
-      <?php
-
-if (sizeof($top_cursos) == 0) {?>
-      		 <div>
-        <div><span>Não encontrado nenhum curso</span></div>
-      </div>
-      	<?php }
-?>
-		      <?php
-foreach ($top_cursos as $curso => $ig) {?>
-			 <div>
-        <div><span><?=$curso;?></span></div>
-      </div>
-<?php }
-?>
-
+<!-- 		<?php
+            foreach ($top_cursos as $curso => $ig) {?>
+			    <div>
+                    <div><span><?=$curso;?></span></div>
+                </div>
+        <?php } ?>
+ -->
     </section>
 
     <!--  Start Footer Section  -->
