@@ -9,7 +9,7 @@ services:
 install:
   - echo y | pecl install mongo
 
-before_script: 
-	- phpenv config-add travisconfig.ini
-	- chmod +x run_test.sh
-script: ./run_test.sh
+before_script: phpenv config-add travisconfig.ini
+script:
+  - chmod +x run_test.sh 
+  - ./run_test.sh
