@@ -114,7 +114,7 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
                             <th ><?=$resultado['exemplo'];?></th>
                             <th ><?=$resultado['exercicioInterativo'];?></th>
 
-                            <th>Precos</th>
+                            <th><?= $resultado['minPreco'] == $resultado['maxPreco'] ? "R$".$resultado['minPreco'].",00" : "R$" . $resultado['minPreco'] . ",00 - " ."R$" .$resultado['maxPreco'].",00";?></th>
 
                             <th ><?=$resultado['cursoLivre'];?></th>
                             <th ><?=$resultado['tempoDefinido'];?></t>

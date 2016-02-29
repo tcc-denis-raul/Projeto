@@ -23,6 +23,9 @@ class Informacoes {
 		foreach ($this->extra as $carac) {
 			$f->possuiCaracteristica($curso_dados['extra'], $carac) ? $resultado[$carac] = "&radic;" : $resultado[$carac] = "X";
 		}
+		$preco = $f->getMinMaxPreco($curso_dados['precoReal'], $curso_dados['precoDolar']);
+		$resultado['minPreco'] = $preco['min'];
+		$resultado['maxPreco'] = $preco['max'];
 		return $resultado;
 	}
 }

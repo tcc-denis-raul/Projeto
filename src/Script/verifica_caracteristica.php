@@ -60,4 +60,32 @@ class Funcoes
         }
         return 0;
     }
+
+    public function getMinMaxPreco($vet_real, $vet_dolar)
+    {
+        $min = 999999999;
+        $max = 0;
+        foreach ($vet_real as $valor) {
+            if($valor <= $min) {
+                $min = $valor;
+            }
+            if($valor > $max || $max == 0) {
+                $max = $valor;
+            }
+        }
+        if(sizeof($vet_dolar) != 0){
+            foreach ($vet_dolar as $valor) {
+                $cotacao   = new Cotacao;
+                $dolar     = $cotacao->getDolar();
+                $valor     = $valor * $dolar;
+                if($valor < $min || $min == 0) {
+                    $min = $valor;
+                }
+                if($valor > $max || $max == 0) {
+                    $max = $valor;
+                }
+            }
+        }
+        return array("min" => $min, "max" => $max);
+    }
 }
