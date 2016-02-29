@@ -47,7 +47,7 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
                 <!--    Start Logo    -->
                 <ul class="title-area">
                   <li class="name">
-                    <a href="../index.html" class="logo">
+                    <a href="index.html" class="logo">
                       <h1>paloma<span class="tld"> .com</span></h1>
                     </a>
                   </li>
@@ -65,7 +65,7 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
                         <li><a href="cursos.php" id="curso">Ingles</a></li>
                       </ul>
                     </li>
-                    <li><a href="#connect">Login</a></li>
+                    <li><a href="login.html">Login</a></li>
                   </ul>
                 </section>
                 <!--    End Navigation Menu    -->
@@ -190,7 +190,6 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
         <script type="text/javascript" src="js/easing.js"></script>
         <script type="text/javascript" src="js/foundation.min.js"></script>
         <script type="text/javascript" src="js/foundation/foundation.topbar.js"></script>
-        <script type="text/javascript" src="js/carouFredSel.js"></script>
         <script type="text/javascript" src="js/scrollTo.js"></script>
         <script type="text/javascript" src="js/map.js"></script>
         <script type="text/javascript" src="js/main.js"></script>

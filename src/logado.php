@@ -31,7 +31,7 @@ $logado = $_SESSION['login'];
                     <!--    Start Logo    -->
                     <ul class="title-area">
                         <li class="name">
-                            <a href="#" class="logo">
+                            <a href="index.html" class="logo">
                                 <h1>paloma<span class="tld"> .com</span></h1>
                             </a>
                         </li>
@@ -165,7 +165,6 @@ $logado = $_SESSION['login'];
         <script type="text/javascript" src="js/easing.js"></script>
         <script type="text/javascript" src="js/foundation.min.js"></script>
         <script type="text/javascript" src="js/foundation/foundation.topbar.js"></script>
-        <script type="text/javascript" src="js/carouFredSel.js"></script>
         <script type="text/javascript" src="js/scrollTo.js"></script>
         <script type="text/javascript" src="js/map.js"></script>
         <script type="text/javascript" src="js/main.js"></script>

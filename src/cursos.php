@@ -44,7 +44,7 @@ $cursos = $bd->find();
             <!--    Start Logo    -->
             <ul class="title-area">
               <li class="name">
-                <a href="#" class="logo">
+                <a href="index.html" class="logo">
                   <h1>paloma<span class="tld"> .com</span></h1>
                 </a>
               </li>
@@ -62,7 +62,7 @@ $cursos = $bd->find();
                     <li><a href="cursos.php" id="curso">Ingles</a></li>
                   </ul>
                 </li>
-                <li><a href="#connect">Login</a></li>
+                <li><a href="login.html">Login</a></li>
               </ul>
             </section>
             <!--    End Navigation Menu    -->
@@ -200,7 +200,6 @@ $cursos = $bd->find();
     <script type="text/javascript" src="js/easing.js"></script>
     <script type="text/javascript" src="js/foundation.min.js"></script>
     <script type="text/javascript" src="js/foundation/foundation.topbar.js"></script>
-    <script type="text/javascript" src="js/carouFredSel.js"></script>
     <script type="text/javascript" src="js/scrollTo.js"></script>
     <script type="text/javascript" src="js/map.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
