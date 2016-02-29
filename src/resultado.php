@@ -3,30 +3,46 @@ include_once "Script/informacoes.php";
 session_start();
 $top_cursos = $_SESSION['top_cursos_idioma'];
 ?>
+<!DOCTYPE html>
 
-<!doctype html>
 <html class="no-js" lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <!-- <meta name="viewport" content="width=device-width" /> -->
+    <meta name="viewport" content="width=device-width" />
+
     <title>Paloma - Porque aprender é uma experiência única</title>
 
-    <!--    Stylesheet Files    -->
+    <!-- Included CSS Files -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/foundation.min.css" />
     <link rel="stylesheet" href="css/main.css" />
+    <!-- Combine and Compress These CSS Files -->
+    <link rel="stylesheet" href="css/stylesheets/globals.css">
+    <link rel="stylesheet" href="css/stylesheets/typography.css">
+    <link rel="stylesheet" href="css/stylesheets/grid.css">
+    <link rel="stylesheet" href="css/stylesheets/ui.css">
+    <link rel="stylesheet" href="css/stylesheets/forms.css">
+    <link rel="stylesheet" href="css/stylesheets/orbit.css">
+    <link rel="stylesheet" href="css/stylesheets/reveal.css">
+    <link rel="stylesheet" href="css/stylesheets/mobile.css">
+    <!-- End Combine and Compress These CSS Files -->
+    <link rel="stylesheet" href="css/stylesheets/app.css">
+    <link rel="stylesheet" href="css/stylesheets/responsive-tables.css">
+    <script src="js/javascripts/jquery.min.js"></script>
+    <script src="js/javascripts/responsive-tables.js"></script>  
+</head>
 
-    <!--    Javascript files are placed before </body>    -->
-  </head>
-
-  <body>
-    <!--  Start Hero Section  -->
+<body>
+    <!-- Menu -->
     <section class="cursos">
         <header>
             <div class="row">
 
 
-              <nav class="top-bar" data-topbar role="navigation">
+                <nav class="top-bar" data-topbar role="navigation">
 
                 <!--    Start Logo    -->
                 <ul class="title-area">
@@ -56,57 +72,37 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
               </nav>
             </div>
         </header>
-
-      <!-- Titulo -->
-        <div>
-            <div><span>Melhores cursos de Ingles:</span></div>
-        </div>
-
-        <?php
-            if (sizeof($top_cursos) == 0) { ?>
-      		     <div>
-                    <div><span>Não encontrado nenhum curso</span></div>
-                </div>
-        <?php } ?>
-
-        <div class="container">
+        <!-- container -->
+    <div class="container">
         <div class="row">
             <div class="twelve columns">
-                <hr />
-                <h5>Cursos: </h5>
+                
+                <h5>Cursos</h5>
                 <table class="responsive">
                     <tr>
                         <th></th>
-                        <th colspan="4">Metodologia</th>
-                        <th rowspan="2" colspan="1">Preco</th>
-                        <th colspan="3">Dinamica</th>
-                        <th colspan="6">Plataforma</th>
-                        <th colspan="3">Extra</th>
+                        <th>Textos</th>
+                        <th>Video aulas</th>
+                        <th>Exemplos</th>
+                        <th>Exercícios interativos</th>
+                        
+                        <th>Preços</th>
+                        
+                        <th>Curso Livre</th>
+                        <th>Tempo Definido</t>
+                        <th>Início definido</th>
+                        
+                        <th>Android - Online</th>
+                        <th>Android - Offline</th>
+                        <th>Ios - Online</th>
+                        <th>Ios - Offline</th>
+                        <th>Desktop - Online</th>
+                        <th>Desktop - Offline</th>
+
+                        <th>Seleção de nível</th>
+                        <th>Professor</th>
+                        <th>Comunicação entre alunos</th>
                     </tr>
-                    <tr>
-                        <th ></th>
-                        <th >Textos</th>
-                        <th >Video aulas</th>
-                        <th >Exemplos</th>
-                        <th >Exercícios interativos</th>
-
-                        <th >Curso Livre</th>
-                        <th >Tempo Definido</t>
-                        <th >Início definido</th>
-
-                        <th >Android - Online</th>
-                        <th >Android - Offline</th>
-                        <th >Ios - Online</th>
-                        <th >Ios - Offline</th>
-                        <th >Desktop - Online</th>
-                        <th >Desktop - Offline</th>
-
-                        <th >Seleção de nível</th>
-                        <th >Professor</th>
-                        <th >Comunicação entre alunos</th>
-                    </tr>
-
-                    
                     <?php foreach ($top_cursos as $curso => $ig) {
                         $inf = new Informacoes;
                         $resultado = $inf->getDados($curso);
@@ -136,22 +132,12 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
                             <th ><?=$resultado['comunicacaoAlunos'];?></th>
                         </tr>
                     <?php } ?>
-
                 </table>
             </div>
         </div>
-
-
-<!-- 		<?php
-            foreach ($top_cursos as $curso => $ig) {?>
-			    <div>
-                    <div><span><?=$curso;?></span></div>
-                </div>
-        <?php } ?>
- -->
+    </div>
     </section>
 
-    <!--  Start Footer Section  -->
     <footer>
       <div class="row">
 
@@ -192,27 +178,22 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
 
       </div>
     </footer>
-    <!--  End Footer Section  -->
 
-    <!--    Start Back To Top    -->
     <a href="#" class="btn_fancy" id="back_top">
       <div class="solid_layer"></div>
       <div class="border_layer"></div>
       <div class="text_layer"><img src="img/top_arrow.png" alt="Back to top" title="" class="top_arrow"></div>
     </a>
-    <!--    End Back To Top    -->
 
-    <!--    Javascript Files    -->
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/touchSwipe.min.js"></script>
-    <script type="text/javascript" src="js/easing.js"></script>
-    <script type="text/javascript" src="js/foundation.min.js"></script>
-    <script type="text/javascript" src="js/foundation/foundation.topbar.js"></script>
-    <script type="text/javascript" src="js/carouFredSel.js"></script>
-    <script type="text/javascript" src="js/scrollTo.js"></script>
-    <script type="text/javascript" src="js/map.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/touchSwipe.min.js"></script>
+        <script type="text/javascript" src="js/easing.js"></script>
+        <script type="text/javascript" src="js/foundation.min.js"></script>
+        <script type="text/javascript" src="js/foundation/foundation.topbar.js"></script>
+        <script type="text/javascript" src="js/carouFredSel.js"></script>
+        <script type="text/javascript" src="js/scrollTo.js"></script>
+        <script type="text/javascript" src="js/map.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
 
-  </body>
+</body>
 </html>
