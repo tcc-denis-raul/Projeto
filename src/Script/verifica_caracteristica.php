@@ -65,12 +65,14 @@ class Funcoes
     {
         $min = 999999999;
         $max = 0;
-        foreach ($vet_real as $valor) {
-            if($valor <= $min) {
-                $min = $valor;
-            }
-            if($valor > $max || $max == 0) {
-                $max = $valor;
+        if(sizeof($vet_real) != 0){
+            foreach ($vet_real as $valor) {
+                if($valor <= $min) {
+                    $min = $valor;
+                }
+                if($valor > $max || $max == 0) {
+                    $max = $valor;
+                }
             }
         }
         if(sizeof($vet_dolar) != 0){
