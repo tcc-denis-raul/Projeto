@@ -1,7 +1,6 @@
 <header>
     <div class="row">
         <nav class="top-bar" data-topbar role="navigation">
-            <!--    Start Logo    -->
             <ul class="title-area">
                 <li class="name">
                     <a href="index.php" class="logo">
@@ -10,9 +9,7 @@
                 </li>
                 <span class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></span>
             </ul>
-            <!--    End Logo    -->
-
-            <!--    Start Navigation Menu    -->
+           
             <section class="top-bar-section" id="mean_nav">
                 <ul class="right">
                     <li class="has-dropdown">
@@ -22,9 +19,26 @@
                         </ul>
                     </li>
                     <li><a href="login.php">Login</a></li>
+                    <?php if(isset($_SESSION['login'])) { ?>
+                    <li class="has-dropdown">
+                        <a><?=$_SESSION['login']; ?></a>
+                        <ul class="dropdown">
+                            <li><a href="perfil.php" id="curso">Meu Perfil</a></li>
+                            <li><a href="modificar_senha.php" id="curso">Mudar Senha</a></li>
+                            <li><a href="#" data-reveal-id="desconectar" id="cursos">Desconectar</a></li>
+                            <div id="desconectar" class="reveal-modal" data-reveal aria-labelledby="modalTitle">
+                                <h2 id="modalTitle">Desconectar</h2>
+                                <p class="lead">Tem certeza?</p>
+                                <form method="post" action="Script/desconectar.php">
+                                    <input type="submit" value="Confirmar"/>
+                                </form>
+                                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                            </div>
+                        </ul>
+                    </li>
+                    <?php } ?>
                 </ul>
             </section>
-            <!--    End Navigation Menu    -->
         </nav>
     </div>
 </header>
