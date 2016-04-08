@@ -821,6 +821,13 @@ footer p {
 
 /* 	Fim cursos.php	*/
 
+/* login.php */
+.log-in-form {
+  border: 1px solid #cacaca;
+  padding: 1rem;
+  border-radius: 3px; 
+}
+
 
 /*    Fim Novas Alterações Desktop    */
 

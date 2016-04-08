@@ -42,12 +42,31 @@ class BD
         $mongo_cliente = new MongoClient();
         $db            = $mongo_cliente->$base;
         $verifica      = $this->findUsuario(array('email' => $info["email"]));
+        //se usuário for encontrado retorna que ja existe
         if(sizeof($verifica) > 0) {
             return 0;
         } else {
             $db->$colecao->insert($info, array("w" => 1));
             return 1;
-        }
-        // return $usuario;   
+        }   
+    }
+
+    public function updateUsuario($info)
+    {
+        $base          = $this->base_nome;
+        $colecao       = $this->colecao_usuario;
+        $mongo_cliente = new MongoClient();
+        $db            = $mongo_cliente->$base;
+        $verifica      = $this->findUsuario(array('email' => $info["email"]));
+        //se o usuário não for encontrado retorna falso
+        if(sizeof($verifica) <= 0) {
+            return 0;
+        } else {
+            $db->$colecao->update(
+                array("email" => $info["email"]), 
+                array('$set' => array("senha" => $info["senha"]))
+            );
+            return 1;
+        }   
     }
 }

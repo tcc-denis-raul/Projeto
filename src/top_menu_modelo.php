@@ -21,16 +21,34 @@
                     <li><a href="login.php">Login</a></li>
                     <?php if(isset($_SESSION['login'])) { ?>
                     <li class="has-dropdown">
-                        <a><?=$_SESSION['login']; ?></a>
+                        <a><?=$_SESSION['login'];?></a>
                         <ul class="dropdown">
                             <li><a href="perfil.php" id="curso">Meu Perfil</a></li>
-                            <li><a href="modificar_senha.php" id="curso">Mudar Senha</a></li>
-                            <li><a href="#" data-reveal-id="desconectar" id="cursos">Desconectar</a></li>
+                            <li><a href="#" data-reveal-id="senha" >Mudar Senha</a></li>
+                            <li><a href="#" data-reveal-id="desconectar">Desconectar</a></li>
                             <div id="desconectar" class="reveal-modal" data-reveal aria-labelledby="modalTitle">
                                 <h2 id="modalTitle">Desconectar</h2>
                                 <p class="lead">Tem certeza?</p>
                                 <form method="post" action="Script/desconectar.php">
                                     <input type="submit" value="Confirmar"/>
+                                </form>
+                                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                            </div>
+                            <div id="senha" class="reveal-modal" data-reveal aria-labelledby="modalTitle">
+                                <h2 id="modalTitle">Modificar Senha</h2>
+                                <form method="post" action="Script/modificar_senha.php">
+                                    <input type="hidden" name="email" value=<?=$_SESSION['login'];?>>
+                                    
+                                    <label>Senha antiga</label>
+                                    <input type="password" name="senha_antiga" maxlength="50" />
+
+                                    <label>Nova senha</label>
+                                    <input type="password" name="nova_senha" maxlength="50" />
+
+                                    <label>Confirmar senha</label>
+                                    <input type="password" name="confirmar_senha" maxlength="50" />
+
+                                    <input type="submit" value="Modificar" />
                                 </form>
                                 <a class="close-reveal-modal" aria-label="Close">&#215;</a>
                             </div>

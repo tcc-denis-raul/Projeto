@@ -19,18 +19,20 @@
             <!-- LOGIN -->
             <div class="row">
                 <div class="medium-6 medium-centered large-4 large-centered columns">
-                    <form method="post" action="Script/valida.php">
+                    <form method="post" action="Script/cadastrar.php">
                         <div class="row column log-in-form">
-                            <h4 class="text-left">Entrar com email e senha</h4>
+                            <h4 class="text-left">Cadastrar email e senha</h4>
+
+                            <label>Nome</label>
+                            <input type="text" name="nome" maxlength="50" placeholder="João"/>
+                
                             <label>Email</label>
-                            <input type="text" name="email" placeholder="exemplo@exemplo.com">
-                            
+                            <input type="text" name="email" maxlength="50" placeholder="exemplo@exemplo.com"/>
+
                             <label>Senha</label>
-                            <input type="password" name="senha" placeholder="Senha">
-                            
-                            <input type="submit" value="Entrar" class="button expand"/>
-                        
-                            <p class="text-center"><a href="cadastrar.php">Não tem uma senha? Cadastre agora</a></p>   
+                            <input type="password" name="senha" maxlength="50" placeholder="Senha"/>
+
+                            <input type="submit" value="Cadastrar" class="button expand" />
                         </div>
                     </form>
                 </div>
