@@ -14,7 +14,7 @@
 
     <body>
     
-        <section class="cursos">
+        <section class="hero">
             <?php include 'top_menu_modelo.php'; ?>
             <!-- LOGIN -->
             <div class="row">
@@ -28,7 +28,7 @@
                             <label>Senha</label>
                             <input type="password" name="senha" placeholder="Senha">
                             
-                            <input type="submit" value="Entrar" class="button expand"/>
+                            <input type="submit" value="Entrar" class="button expand index"/>
                         
                             <p class="text-center"><a href="cadastrar.php">Não tem uma senha? Cadastre agora</a></p>   
                         </div>

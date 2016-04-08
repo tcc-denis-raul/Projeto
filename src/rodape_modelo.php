@@ -3,9 +3,8 @@
 <body>
     <footer>
         <div class="row">
-
             <!--    Start Copyrights    -->
-            <div class="small-12 medium-4 large-4 columns">
+            <div class="small-2 small-4 large-4 columns">
                 <div class="copyrights">
                     <a class="logo" href="index.php">
                         <h1>paloma<span class="tld"> .com</span></h1>
@@ -15,8 +14,7 @@
             </div>
             <!--    End Copyrights    -->
 
-
-            <div class="small-12 medium-8 large-8 columns">
+            <!-- <div class="small-12 medium-8 large-8 columns">
                 <div class="contact_details right">
                     <nav class="social">
                         <ul class="no-bullet">
@@ -36,7 +34,7 @@
                         <p class="adress">550 Hershell Hollow Road Johnson City, TN 37615</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </footer>

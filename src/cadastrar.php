@@ -14,9 +14,9 @@
 
     <body>
     
-        <section class="cursos">
+        <section class="hero">
             <?php include 'top_menu_modelo.php'; ?>
-            <!-- LOGIN -->
+            <!-- Cadastrar -->
             <div class="row">
                 <div class="medium-6 medium-centered large-4 large-centered columns">
                     <form method="post" action="Script/cadastrar.php">
@@ -32,7 +32,7 @@
                             <label>Senha</label>
                             <input type="password" name="senha" maxlength="50" placeholder="Senha"/>
 
-                            <input type="submit" value="Cadastrar" class="button expand" />
+                            <input type="submit" value="Cadastrar" class="button expand index" />
                         </div>
                     </form>
                 </div>

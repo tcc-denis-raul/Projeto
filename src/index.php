@@ -20,7 +20,8 @@
                 <div class="row">
                     <h1 class="mean_cap">Encontre o Curso</hA>
                     <h2 class="sub_cap">Ideal para voce!</h2>
-                    <a href="questionario.php" class="btn_details"><span>Descubra rapidamente</span> <img src="img/btn_arrow.png" alt="" src="" class="arrow"></a>
+                    
+                    <a href="questionario.php" class="button round index"><span>Descubra rapidamente</span></a>
                 </div>
             </section>
 
@@ -56,7 +57,7 @@
                 </div>
                 
                 <div class="btn_holder">
-                    <a href="login.php" class="btn_fancy">
+                    <a href="cadastrar.php" class="btn_fancy">
                         <div class="solid_layer"></div>
                         <div class="border_layer"></div>
                         <div class="text_layer">Cadastre-se</div>
