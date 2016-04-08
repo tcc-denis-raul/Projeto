@@ -1,11 +1,11 @@
 <?php
 session_start();
-if((!isset ($_SESSION['login']) == true)) { 
-	unset($_SESSION['login']); 
-	unset($_SESSION['senha']); 
-	header('location:login.html'); 
+if((!isset ($_SESSION['email']) == true)) { 
+	unset($_SESSION['email']); 
+	unset($_SESSION['nome']); 
+	header('location:login.php'); 
 }
-$logado = $_SESSION['login']; 
+$nome = $_SESSION['nome']; 
 ?>
 
 <!doctype html>
@@ -26,7 +26,7 @@ $logado = $_SESSION['login'];
             <?php include 'top_menu_modelo.php'; ?>
             <section class="caption">
                 <div class="row">
-                    <h1 class="mean_cap">Usuário <?=$logado;?></hA>
+                    <h1 class="mean_cap">Usuário <?=$nome;?></hA>
                 </div>
             </section>
         </section>

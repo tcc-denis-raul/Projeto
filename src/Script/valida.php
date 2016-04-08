@@ -18,17 +18,21 @@ class Main
             $senha = md5($_POST["senha"]);
             $bd = new BD;
             $usuario_bd = $bd->findUsuario(array('email' => $email));
-            $_SESSION['login'] = $email;
+            $_SESSION['email'] = $email;
+            $_SESSION['nome'] = $usuario_bd['nome'];
             if(!$this->validaCampos($email, $senha)) {
-                unset($_SESSION['login']); 
+                unset($_SESSION['email']);
+                unset($_SESSION['nome']);
                 echo "<script>alert('Preencha todos os campos');history.back();</script>";
             }
             else if(sizeof($usuario_bd) <= 0){
-                unset($_SESSION['login']); 
+                unset($_SESSION['email']);
+                unset($_SESSION['nome']); 
                 echo "<script>alert('Email não encontrado');history.back();</script>";
             }
             else if($usuario_bd["senha"] != $senha) {
-                unset($_SESSION['login']); 
+                unset($_SESSION['email']);
+                unset($_SESSION['nome']); 
                 echo "<script>alert('senha invalida');history.back();</script>";   
             }
         }

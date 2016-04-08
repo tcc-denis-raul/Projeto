@@ -19,14 +19,17 @@ class Cadastrar
             $nome = $_POST["nome"];
             $senha = md5($_POST["senha"]);
             if(!$this->validaCampos($email, $senha, $nome)){
-                unset($_SESSION['login']);
+                unset($_SESSION['email']);
+                unset($_SESSION['nome']);
                 echo "<script>alert('Preencha todos os campos');history.back();</script>";
             } else {
-                $_SESSION['login'] = $email;
+                $_SESSION['email'] = $email;
+                $_SESSION['nome'] = $nome;
                 $bd = new BD;
                 $ok = $bd->insertUsuario(array('email' => $email, "nome" => $nome, "senha" => $senha));
                 if(!$ok){
-                    unset($_SESSION['login']);
+                    unset($_SESSION['email']);
+                    unset($_SESSION['nome']);
                     echo "<script>alert('Email já cadastrado');history.back();</script>";
                 } else {
                     echo "<script>alert('Usuario criado com sucesso');window.location='../login.php';</script>";
