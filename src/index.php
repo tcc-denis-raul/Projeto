@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -68,12 +71,7 @@
             <!--    Javascript Files    -->
             <script type="text/javascript" src="js/jquery.js"></script>
             <script type="text/javascript" src="js/main.js"></script>
-            <script type="text/javascript" src="js/touchSwipe.min.js"></script>
-            <script type="text/javascript" src="js/easing.js"></script>
             <script type="text/javascript" src="js/foundation.min.js"></script>
-            <script type="text/javascript" src="js/foundation/foundation.topbar.js"></script>
-            <script type="text/javascript" src="js/scrollTo.js"></script>
-            <script type="text/javascript" src="js/map.js"></script>
     </body>
 
 </html>

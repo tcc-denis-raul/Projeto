@@ -18,7 +18,9 @@
                             <li><a href="cursos.php" id="curso">Ingles</a></li>
                         </ul>
                     </li>
+                    <?php if(!isset($_SESSION['email'])) { ?>
                     <li><a href="login.php">Login</a></li>
+                    <?php } ?>
                     <?php if(isset($_SESSION['email'])) { ?>
                     <li class="has-dropdown">
                         <a><?=$_SESSION['nome'];?></a>
@@ -34,7 +36,7 @@
                                 </form>
                                 <a class="close-reveal-modal" aria-label="Close">&#215;</a>
                             </div>
-                            <div id="senha" class="reveal-modal" data-reveal aria-labelledby="modalTitle">
+                            <div id="senha" class="reveal-modal small" data-reveal aria-labelledby="modalTitle">
                                 <h2 id="modalTitle">Modificar Senha</h2>
                                 <form method="post" action="Script/modificar_senha.php">
                                     <input type="hidden" name="email" value=<?=$_SESSION['email'];?>>

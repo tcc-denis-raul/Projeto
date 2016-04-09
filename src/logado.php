@@ -70,15 +70,9 @@ $nome = $_SESSION['nome'];
             </section>
             
             <!--    Javascript Files    -->
-            <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
             <script type="text/javascript" src="js/jquery.js"></script>
-            <script type="text/javascript" src="js/touchSwipe.min.js"></script>
-            <script type="text/javascript" src="js/easing.js"></script>
-            <script type="text/javascript" src="js/foundation.min.js"></script>
-            <script type="text/javascript" src="js/foundation/foundation.topbar.js"></script>
-            <script type="text/javascript" src="js/scrollTo.js"></script>
-            <script type="text/javascript" src="js/map.js"></script>
             <script type="text/javascript" src="js/main.js"></script>
+            <script type="text/javascript" src="js/foundation.min.js"></script>
     </body>
 </html>
 

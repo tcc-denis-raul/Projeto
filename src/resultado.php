@@ -97,6 +97,7 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
             </div>
         </section>
 
+
         <script type="text/javascript" src="js/javascripts/jquery.min.js"></script>
         <script type="text/javascript" src="js/javascripts/responsive-tables.js"></script>  
         <script type="text/javascript" src="js/jquery.js"></script>
