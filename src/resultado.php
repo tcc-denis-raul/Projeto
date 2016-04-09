@@ -98,6 +98,7 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
                     "info":     false,
                     "searching": false,
                     "paging": false,
+                    "ordering": false,
                     "language": {
                         "lengthMenu": "Mostrar _MENU_ cursos por página",
                         "zeroRecords": "Nada encontrado - desculpe",

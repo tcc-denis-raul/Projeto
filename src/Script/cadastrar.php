@@ -32,7 +32,7 @@ class Cadastrar
                     unset($_SESSION['nome']);
                     echo "<script>alert('Email já cadastrado');history.back();</script>";
                 } else {
-                    echo "<script>alert('Usuario criado com sucesso');window.location='../login.php';</script>";
+                    echo "<script>alert('Usuario criado com sucesso');window.location='../logado.php';</script>";
                 }
             }
         }

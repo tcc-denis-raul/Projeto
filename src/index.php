@@ -58,14 +58,6 @@ session_start();
                         <p>Aprender se divertindo é a melhor coisa! Crie seu perfil de aluno e suba de níveis através de ações como sugerir um novo curso e ajudar algum outro aluno. Quanto mais ativo mais você sobe e pode virar até professor!</p>
                     </div>
                 </div>
-                
-                <div class="btn_holder">
-                    <a href="cadastrar.php" class="btn_fancy">
-                        <div class="solid_layer"></div>
-                        <div class="border_layer"></div>
-                        <div class="text_layer">Cadastre-se</div>
-                    </a>
-                </div>
             </section>
 
             <!--    Javascript Files    -->
