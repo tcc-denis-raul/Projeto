@@ -51,6 +51,7 @@ $cursos = $bd->find();
                         <th>Comunicação entre alunos</th>
                     </tr>
                 </thead>
+                <tbody>
                 <?php foreach ($cursos as $curso) {
                     $inf = new Informacoes;
                     $resultado = $inf->getDados($curso['nome']);
@@ -88,7 +89,6 @@ $cursos = $bd->find();
 
     <!--    Javascript Files    -->
     <script type="text/javascript" src="js/jquery.js"></script>
-    
     <script type="text/javascript" src="js/foundation.min.js"></script>
     <script type="text/javascript" src="js/tabela/jquery.dataTables.js"></script>
     <script type="text/javascript" src="js/tabela/dataTables.foundation.js"></script>
