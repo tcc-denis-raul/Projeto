@@ -25,8 +25,10 @@ class Cadastrar
             } else {
                 $_SESSION['email'] = $email;
                 $_SESSION['nome'] = $nome;
+                date_default_timezone_set('America/Sao_Paulo');
+                $data = date('d/m/y H:i:s');
                 $bd = new BD;
-                $ok = $bd->insertUsuario(array('email' => $email, "nome" => $nome, "senha" => $senha));
+                $ok = $bd->insertUsuario(array('email' => $email, "nome" => $nome, "senha" => $senha, "criado" => $data));
                 if(!$ok){
                     unset($_SESSION['email']);
                     unset($_SESSION['nome']);

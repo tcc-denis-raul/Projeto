@@ -21,7 +21,7 @@
                     <?php if(!isset($_SESSION['email'])) { ?>
                         <li><a href="#" data-reveal-id="login">Login</a></li>
                         <!-- Pop-up para o botão de login -->
-                        <div id="login" class="reveal-modal small" data-reveal aria-labelledby="modalTitle">
+                        <div id="login" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle">
                             <h2 id="modalTitle">Entrar com email e senha</h2>
                             <form method="post" action="Script/valida.php">
                                 <div class="row column log-in-form">
@@ -40,7 +40,7 @@
                         </div>
 
                         <!-- Pop-up para o botão de cadastrar -->
-                        <div id="cadastrar" class="reveal-modal small" data-reveal aria-labelledby="modalTitle">
+                        <div id="cadastrar" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle">
                             <h2 id="modalTitle">Cadastrar email e senha</h2>
                             <form method="post" action="Script/cadastrar.php">
                                 <div class="row column log-in-form">

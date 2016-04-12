@@ -64,7 +64,7 @@ class BD
         } else {
             $db->$colecao->update(
                 array("email" => $info["email"]), 
-                array('$set' => array("senha" => $info["senha"]))
+                array('$set' => $info)
             );
             return 1;
         }   
