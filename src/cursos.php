@@ -20,7 +20,7 @@ $cursos = $bd->find();
     </head>
 
 <body>
-    <section class="hero">
+    <section class="hero2">
         <?php include 'top_menu_modelo.php'; ?>
             
         <section class="css_tabela">

@@ -17,7 +17,7 @@ session_start();
 
 <body>
     
-    <section class="hero questionario">
+    <section class="hero2 questionario">
         <?php include 'top_menu_modelo.php'; ?>
         
         <div>

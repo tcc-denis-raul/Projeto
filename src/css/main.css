@@ -727,6 +727,18 @@ footer p {
 
 /*    Novas Alterações Desktop    */
 
+/*    hero para outras paginas    */
+
+.hero2 {
+    width: 100%;
+    background: url('../img/slide.jpg') no-repeat 50% 50%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*padding: 140px 0;*/
+}
+
 .top-bar-section .has-dropdown>a:after {
     margin-top: -17px;
     margin-right: 40px;
@@ -804,6 +816,53 @@ button.index:focus,
 }
 
 /* fim questionario.php*/
+
+/* perfil.php */
+.panel {
+    background: transparent;
+    border-color: transparent;
+}
+
+.imagem table{
+    background: transparent;
+    border-color: transparent;
+}
+
+.imagem table tr td img{
+    -moz-border-radius: 1000px; 
+    -webkit-border-radius: 1000px; 
+    -o-border-radius: 10px;    
+    width:  300px; 
+    height: auto;
+}
+
+.info {
+    margin-top: 100px;
+}
+
+.info h4 {
+    color: white;
+}
+
+.info h4 p {
+    display: inline;
+    color: white;
+}
+
+.estatistica h3 {
+    color: white;
+}
+
+.estatistica h4 {
+    margin-left: 10px;
+    color: white;
+}
+
+.estatistica h4 p {
+    display: inline;
+    color: white;
+}
+/* fim perfil.php */
 
 /*    Fim Novas Alterações Desktop    */
 
