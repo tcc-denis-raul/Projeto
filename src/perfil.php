@@ -26,11 +26,20 @@ $usuario = $bd->findUsuario(array("email" => $email));
             <div class="row" data-equalizer>
                 <div class="medium-5 columns panel imagem" data-equalizer-watch>
                     <table>
-                        <caption align="bottom"><a href="modificar_foto.php">Modificar foto</a></caption>
+                        <caption align="bottom"><a href="#" data-reveal-id="foto">Modificar foto</a></caption>
                         <tr>
                             <td><img src="<?=$usuario['foto'];?>"></td>
                         </tr> 
                     </table>
+                    <div id="foto" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle">
+                            <h2 id="modalTitle">Modificar foto</h2>
+                            <p class="lead">selecione a imagem para enviar: </p>
+                            <form action="Script/upload_img.php" method="post" enctype="multipart/form-data">
+                                <input type="file" name="arquivo" id="arquivo" class="file-input">
+                                <input type="submit" value="Upload Image" name="submit" class="button expand index">
+                            </form>
+                            <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                        </div>
                 </div>
                 <div class="large-6 columns panel info" data-equalizer-watch>
                     <h4>Nome: 

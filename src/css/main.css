@@ -862,6 +862,10 @@ button.index:focus,
     display: inline;
     color: white;
 }
+
+.file-input {
+    color: white;
+}
 /* fim perfil.php */
 
 /*    Fim Novas Alterações Desktop    */
