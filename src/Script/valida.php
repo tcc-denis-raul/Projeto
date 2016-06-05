@@ -40,4 +40,4 @@ class Main
 }
 $req                           = new Main;
 $req->getUser();
-header("Location: ../logado.php");
+header("Location: ../index.php");

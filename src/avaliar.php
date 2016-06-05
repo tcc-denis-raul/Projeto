@@ -1,7 +1,9 @@
 <?php
 include_once "Script/informacoes.php";
+include_once "Script/seleciona_bd.php";
 session_start();
-$top_cursos = $_SESSION['top_cursos_idioma'];
+$get = new MAIN;
+$top_cursos = $get->getCursosBd();
 ?>
 <!DOCTYPE html>
 
@@ -29,27 +31,6 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
                             <th>Curso</th>
                             <th>Textos</th>
                             <th>Video aulas</th>
-                            <th>Exemplos</th>
-                            <th>Exercícios interativos</th>
-
-                            <th>Preços</th>
-                            
-                            <th>Curso Livre</th>
-                            <th>Tempo Definido</th>
-                            <th>Início definido</th>
-
-                            <th>Android - Online</th>
-                            <th>Android - Offline</th>
-                            <th>Ios - Online</th>
-                            <th>Ios - Offline</th>
-                            <th>Desktop - Online</th>
-                            <th>Desktop - Offline</th>
-
-                            <th>Seleção de nível</th>
-                            <th>Professor</th>
-                            <th>Comunicação entre alunos</th>
-
-                            <th>Avaliação</th>>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,29 +40,18 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
                     ?>
                         <tr>
                             <th ><?=$resultado['nome'];?></th>
-                            <th ><?=$resultado['texto'];?></th>
-                            <th ><?=$resultado['videoAula'];?></th>
-                            <th ><?=$resultado['exemplo'];?></th>
-                            <th ><?=$resultado['exercicioInterativo'];?></th>
-
-                            <th><?= $resultado['minPreco'] == $resultado['maxPreco'] ? "R$".$resultado['minPreco'].",00" : "R$" . $resultado['minPreco'] . ",00 - " ."R$" .$resultado['maxPreco'].",00";?></th>
-
-                            <th ><?=$resultado['cursoLivre'];?></th>
-                            <th ><?=$resultado['tempoDefinido'];?></t>
-                            <th ><?=$resultado['inicioDefinido'];?></th>
-
-                            <th ><?=$resultado['andOff'];?></th>
-                            <th ><?=$resultado['andOn'];?></th>
-                            <th ><?=$resultado['iosOff'];?></th>
-                            <th ><?=$resultado['iosOn'];?></th>
-                            <th ><?=$resultado['desktopOff'];?></th>
-                            <th ><?=$resultado['desktopOn'];?></th>
-
-                            <th ><?=$resultado['selecaoNivel'];?></th>
-                            <th ><?=$resultado['professor'];?></th>
-                            <th ><?=$resultado['comunicacaoAlunos'];?></th>
-
-                            <th><?=$resultado['rate'];?></th>
+                            <th >
+                                <form method="post" action="Script/like.php" >  
+                                    <input type="hidden" value="<?=$resultado['nome']?>" name="enviardados" value="" />
+                                    <input type="submit" value="Like" class="button expand index" />
+                                </form>
+                            </th>
+                            <th >
+                                <form method="post" action="Script/deslike.php" >  
+                                    <input type="hidden" id="<?=$resultado['nome']?>" name="enviardados" value="" />
+                                    <input type="submit" value="Unlike" class="button expand index" />
+                                </form>
+                            </th>
                         </tr>
                     <?php } ?>
                     </tbody>

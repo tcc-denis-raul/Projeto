@@ -1,7 +1,9 @@
 <?php
 include_once "Script/informacoes.php";
+include_once "Script/seleciona_bd.php";
 session_start();
-$top_cursos = $_SESSION['top_cursos_idioma'];
+$get = new MAIN;
+$top_cursos = $get->getCursosBd();
 ?>
 <!DOCTYPE html>
 
@@ -48,8 +50,6 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
                             <th>Seleção de nível</th>
                             <th>Professor</th>
                             <th>Comunicação entre alunos</th>
-
-                            <th>Avaliação</th>>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,8 +80,6 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
                             <th ><?=$resultado['selecaoNivel'];?></th>
                             <th ><?=$resultado['professor'];?></th>
                             <th ><?=$resultado['comunicacaoAlunos'];?></th>
-
-                            <th><?=$resultado['rate'];?></th>
                         </tr>
                     <?php } ?>
                     </tbody>

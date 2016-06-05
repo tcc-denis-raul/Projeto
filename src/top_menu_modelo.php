@@ -12,12 +12,26 @@
            
             <section class="top-bar-section" id="mean_nav">
                 <ul class="right">
+                    <!-- Menu para listar todos os cursos-->
                     <li class="has-dropdown">
                         <a href="#">Cursos</a>
                         <ul class="dropdown">
                             <li><a href="cursos.php" id="curso">Ingles</a></li>
                         </ul>
                     </li>
+
+                    <?php if(isset($_SESSION['email'])) { ?>
+                    <li class="has-dropdown">
+                        <a href="#">Meus cursos</a>
+                        <ul class="dropdown">
+                            <li><a href="caracteristicas.php">Monte seu perfil</a></li>
+                            <li><a href="custom_curses.php">cursos</a></li>
+                            <li><a href="avaliar.php">avaliar cursos</a></li>
+                        </ul>
+                    </li>                    
+                    <?php } ?>
+
+                    <!-- Se não estiver logado: login; se tiver logado: mostra as outras opções-->
                     <?php if(!isset($_SESSION['email'])) { ?>
                         <li><a href="#" data-reveal-id="login">Login</a></li>
                         <!-- Pop-up para o botão de login -->

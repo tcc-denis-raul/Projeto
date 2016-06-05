@@ -26,6 +26,7 @@ class Informacoes {
 		$preco = $f->getMinMaxPreco($curso_dados['precoReal'], $curso_dados['precoDolar']);
 		$resultado['minPreco'] = $preco['min'];
 		$resultado['maxPreco'] = $preco['max'];
+		$resultado['rate'] = $curso_dados['rate'];
 		return $resultado;
 	}
 }

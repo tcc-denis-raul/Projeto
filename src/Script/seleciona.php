@@ -39,6 +39,7 @@ class Main
                 } else if ($f->faixaPreco($um_curso["precoDolar"], $_POST["preco"], "dolar")) {
                     $pontua_cursos[$um_curso["nome"]]++;
                 }
+                $pontua_cursos[$um_curso["nome"]] = (($um_curso["rate"] + $pontua_cursos[$um_curso["nome"]]) / 2 ) ;
             }
             arsort($pontua_cursos);
             return $pontua_cursos;
