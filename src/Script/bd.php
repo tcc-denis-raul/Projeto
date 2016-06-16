@@ -1,10 +1,11 @@
 <?php
 class BD
 {
-    private $base_nome          = "paloma";
-    private $colecao_cursos     = "cursos_idiomas";
-    private $colecao_usuario    = "usuario";
-    private $collection_custom  = "custom_curses";
+    private $base_nome              = "paloma";
+    private $colecao_cursos         = "cursos_idiomas";
+    private $colecao_usuario        = "usuario";
+    private $collection_custom      = "custom_curses";
+    private $collection_courses_new = "new_courses";
 
     public function find()
     {
@@ -136,5 +137,19 @@ class BD
             array("nome" => $curso),
             array('$set' => $inf)
         );
+    }
+
+    public function insertNewCourse($info)
+    {
+        $base          = $this->base_nome;
+        $colecao       = $this->collection_courses_new;
+        $mongo_cliente = new MongoClient();
+        $db            = $mongo_cliente->$base;
+        try {
+            $db->$colecao->insert($info, array("w" => 1));
+        } catch (MongoDuplicateKeyException $e) {
+            return 0;
+        }
+        return 1;
     }
 }

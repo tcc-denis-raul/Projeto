@@ -80,6 +80,7 @@
                         <a><?=$_SESSION['nome'];?></a>
                         <ul class="dropdown">
                             <li><a href="perfil.php" id="curso">Meu Perfil</a></li>
+                            <li><a href="#" data-reveal-id="indicar">Indicar cursos</a></li>
                             <li><a href="#" data-reveal-id="senha" >Mudar Senha</a></li>
                             <li><a href="#" data-reveal-id="desconectar">Desconectar</a></li>
                             <!-- Pop-up para o botão desconectar -->
@@ -107,6 +108,19 @@
                                     <input type="password" name="confirmar_senha" maxlength="50" />
 
                                     <input type="submit" class="button small index"value="Modificar" />
+                                </form>
+                                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                            </div>
+                            <!-- Pop-up para o botão indicar -->
+                            <div id="indicar" class="reveal-modal small" data-reveal aria-labelledby="modalTitle">
+                                <h2 id="modalTitle">Indicar cursos</h2>
+                                <p class="lead">Não encontrou um curso aqui? Nos indique um curso</p>
+                                <form method="post" action="Script/indicar.php">
+                                    <label>Nome</label>
+                                    <input type="text" name="nome_curso" maxlength="50" placeholder="Curso Online"/>
+                                    <label>Endereço</label>
+                                    <input type="text" name="endereco_curso" maxlength="50" placeholder="http://cursoonlinepaloma.com.br" />
+                                    <input type="submit" value="Indicar" class="button small index" />
                                 </form>
                                 <a class="close-reveal-modal" aria-label="Close">&#215;</a>
                             </div>
