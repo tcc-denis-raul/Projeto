@@ -1,0 +1,11 @@
+{
+	"database": {
+		"db_name": "paloma",
+		"collection": {
+			"user": "user",
+			"custom_courses": "custom_courses",
+			"language": "courses_language",
+			"new_courses": "new_courses"
+		}
+	}
+}

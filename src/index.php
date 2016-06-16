@@ -17,14 +17,14 @@ session_start();
 
     <body>
         <section class="hero">
-            <?php include 'top_menu_modelo.php'; ?>
+            <?php include 'top_bar.php'; ?>
             
             <section class="caption">
                 <div class="row">
                     <h1 class="mean_cap">Encontre o Curso</hA>
                     <h2 class="sub_cap">Ideal para voce!</h2>
                     
-                    <a href="questionario.php" class="button round index"><span>Descubra rapidamente</span></a>
+                    <a href="survey.php" class="button round index"><span>Descubra rapidamente</span></a>
                 </div>
             </section>
 
@@ -68,4 +68,4 @@ session_start();
 
 </html>
 
-<?php include 'rodape_modelo.php'; ?>
+<?php include 'footer.php'; ?>

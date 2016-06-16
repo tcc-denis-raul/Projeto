@@ -1,11 +1,78 @@
 <?php
-class BD
+include_once "conf.php";
+
+class DataBase extends Configuration
 {
     private $base_nome              = "paloma";
     private $colecao_cursos         = "cursos_idiomas";
     private $colecao_usuario        = "usuario";
     private $collection_custom      = "custom_curses";
     private $collection_courses_new = "new_courses";
+    // private $conf                   = new Configuration;
+    public function findUser($filter) {
+        $dbname             = $this->getDBName();
+        $collection         = $this->getCollection("user");
+        $mgoclient          = new MongoClient();
+        $db                 = $mgoclient->$dbname;
+        $user               = $db->$collection->findOne($filter);
+        return $user;
+    }
+
+    public function insertUser($inf) {
+        $dbname             = $this->getDBName();
+        $collection         = $this->getCollection("user");
+        $mgoclient          = new MongoClient();
+        $db                 = $mgoclient->$dbname;
+        try {
+            $db->$collection->insert($inf, array("w" => 1));
+        } catch (MongoException $e) {
+            return 0;
+        }
+        return 1;
+    }
+
+    public function updateUser($inf) {
+        $dbname             = $this->getDBName();
+        $collection         = $this->getCollection("user");
+        $mgoclient          = new MongoClient();
+        $db                 = $mgoclient->$dbname;
+        try {
+            $email = $inf["email"];
+            unset($inf["email"]);
+            unset($inf["_id"]);
+            $db->$collection->update(
+                array("email" => $email),
+                array('$set' => $inf)
+            );
+        } catch (Exception $e) {
+            return 0;
+        }
+        return 1;
+    }
+
+    public function insertNewCourseRecommend($inf) {
+        $dbname                 = $this->getDBName();
+        $collection             = $this->getCollection("new_courses");
+        $mgoclient              = new MongoClient();
+        $db                     = $mgoclient->$dbname;
+        try {
+            $db->$collection->insert($inf, array("w" => 1));
+        } catch (MongoDuplicateKeyException $e) {
+            return 0;
+        }
+        return 1;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     public function find()
     {
