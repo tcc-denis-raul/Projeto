@@ -39,6 +39,6 @@ class SelectCourseDB extends CheckAttributes
             }
         }
         arsort($scored_course);
-        return array_slice((array) $scored_course, 0, $quantidade_cursos);
+        return array_slice((array) $scored_course, 0, $number_course);
     }
 }

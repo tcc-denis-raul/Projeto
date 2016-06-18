@@ -1,9 +1,9 @@
 <?php 
 session_start();
-include_once "Script/bd.php";
+include_once "Script/database.php";
 $email = $_SESSION['email'];
-$bd = new BD;
-$usuario = $bd->findUsuario(array("email" => $email));
+$db = new DataBase;
+$user = $db->findUser(array("email" => $email));
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -21,14 +21,14 @@ $usuario = $bd->findUsuario(array("email" => $email));
 
     <body>
         <section class="hero2">
-            <?php include 'top_menu_modelo.php'; ?>
+            <?php include 'top_bar.php'; ?>
 
             <div class="row" data-equalizer>
                 <div class="medium-5 columns panel imagem" data-equalizer-watch>
                     <table>
                         <caption align="bottom"><a href="#" data-reveal-id="foto">Modificar foto</a></caption>
                         <tr>
-                            <td><img src="<?=$usuario['foto'];?>"></td>
+                            <td><img src="<?=$user['photo'];?>"></td>
                         </tr> 
                     </table>
                     <div id="foto" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle">
@@ -43,10 +43,10 @@ $usuario = $bd->findUsuario(array("email" => $email));
                 </div>
                 <div class="large-6 columns panel info" data-equalizer-watch>
                     <h4>Nome: 
-                        <p><?=$usuario['nome'];?></p>
+                        <p><?=$user['name'];?></p>
                     </h4>
                     <h4>Email: 
-                        <p><?=$usuario['email'];?></p>
+                        <p><?=$user['email'];?></p>
                     </h4>
                     <a href="editar.php" class="button tiny round index"><span>Editar informações</span></a>
                 </div>            
@@ -55,11 +55,11 @@ $usuario = $bd->findUsuario(array("email" => $email));
                 <div class="small-6 columns panel estatistica" data-equalizer-watch>
                     <h3>ESTATÍSTICAS DO USUÁRIO</h3>
                     <h4>Membro desde: 
-                        <p><?=$usuario['criado'];?></p>
+                        <p><?=$user['created'];?></p>
                     </h4>
                     <h4>
                         Último visita:
-                        <p><?=$usuario['ultimo_acesso'] ? $usuario['ultimo_acesso'] : "-"; ?></p>
+                        <p><?=$user['last_acess'] ? $user['last_acess'] : "-"; ?></p>
                     </h4>
 
                 </div>
@@ -80,4 +80,4 @@ $usuario = $bd->findUsuario(array("email" => $email));
 
 </html>
 
-<?php include 'rodape_modelo.php'; ?>
+<?php include 'footer.php'; ?>

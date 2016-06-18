@@ -1,9 +1,9 @@
 <?php
-include_once "Script/informacoes.php";
-include_once "Script/seleciona_bd.php";
+include_once "Script/courses_eval.php";
+include_once "Script/select_course_bd.php";
 session_start();
-$get = new MAIN;
-$top_cursos = $get->getCursosBd();
+$get = new SelectCourseDB;
+$top_cursos = $get->getCourseFromDB();
 ?>
 <!DOCTYPE html>
 
@@ -22,7 +22,7 @@ $top_cursos = $get->getCursosBd();
 
     <body>
         <section class="hero">
-            <?php include 'top_menu_modelo.php'; ?>    
+            <?php include 'top_bar.php'; ?>    
             
             <section class="css_tabela">
                 <table id="tabela" class="stripe row-border order-column" cellspacing="0" width="40%">
@@ -35,8 +35,8 @@ $top_cursos = $get->getCursosBd();
                     </thead>
                     <tbody>
                     <?php foreach ($top_cursos as $curso => $ig) {
-                        $inf = new Informacoes;
-                        $resultado = $inf->getDados($curso);
+                        $inf = new CourseEval;
+                        $resultado = $inf->CoursesEval($curso);
                     ?>
                         <tr>
                             <th ><?=$resultado['nome'];?></th>
@@ -89,4 +89,4 @@ $top_cursos = $get->getCursosBd();
     </body>
 </html>
 
-<?php include_once 'rodape_modelo.php'; ?>
+<?php include_once 'footer.php'; ?>
