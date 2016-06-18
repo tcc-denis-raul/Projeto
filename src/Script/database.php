@@ -8,8 +8,9 @@ class DataBase extends Configuration
     private $colecao_usuario        = "usuario";
     private $collection_custom      = "custom_curses";
     private $collection_courses_new = "new_courses";
-    // private $conf                   = new Configuration;
-    public function findUser($filter) {
+    
+    public function findUser($filter) 
+    {
         $dbname             = $this->getDBName();
         $collection         = $this->getCollection("user");
         $mgoclient          = new MongoClient();
@@ -18,7 +19,8 @@ class DataBase extends Configuration
         return $user;
     }
 
-    public function insertUser($inf) {
+    public function insertUser($inf) 
+    {
         $dbname             = $this->getDBName();
         $collection         = $this->getCollection("user");
         $mgoclient          = new MongoClient();
@@ -31,7 +33,8 @@ class DataBase extends Configuration
         return 1;
     }
 
-    public function updateUser($inf) {
+    public function updateUser($inf) 
+    {
         $dbname             = $this->getDBName();
         $collection         = $this->getCollection("user");
         $mgoclient          = new MongoClient();
@@ -50,7 +53,8 @@ class DataBase extends Configuration
         return 1;
     }
 
-    public function insertNewCourseRecommend($inf) {
+    public function insertNewCourseRecommend($inf) 
+    {
         $dbname                 = $this->getDBName();
         $collection             = $this->getCollection("new_courses");
         $mgoclient              = new MongoClient();
@@ -63,8 +67,18 @@ class DataBase extends Configuration
         return 1;
     }
 
-
-
+    public function findCourses($inf = array()) 
+    {
+        $dbname                 = $this->getDBName();
+        $collection             = $this->getCollection("language");
+        $mgoclient              = new MongoClient();
+        $db                     = $mgoclient->$dbname;
+        if(sizeof($inf) == 0) {
+            return $db->$collection->find();
+        } else {
+            return $db->$collection->findOne($inf);
+        }
+    }
 
 
 

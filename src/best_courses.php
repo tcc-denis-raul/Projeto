@@ -1,7 +1,7 @@
 <?php
-include_once "Script/informacoes.php";
+include_once "Script/courses_eval.php";
 session_start();
-$top_cursos = $_SESSION['top_cursos_idioma'];
+$courses = $_SESSION['top_courses_language'];
 ?>
 <!DOCTYPE html>
 
@@ -20,7 +20,7 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
 
     <body>
         <section class="hero">
-            <?php include 'top_menu_modelo.php'; ?>    
+            <?php include 'top_bar.php'; ?>    
             
             <section class="css_tabela">
                 <table id="tabela" class="stripe row-border order-column" cellspacing="0" width="40%">
@@ -53,35 +53,35 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($top_cursos as $curso => $ig) {
-                        $inf = new Informacoes;
-                        $resultado = $inf->getDados($curso);
+                    <?php foreach ($courses as $course => $ig) {
+                        $inf = new CourseEval;
+                        $result = $inf->CoursesEval($course);
                     ?>
                         <tr>
-                            <th ><?=$resultado['nome'];?></th>
-                            <th ><?=$resultado['texto'];?></th>
-                            <th ><?=$resultado['videoAula'];?></th>
-                            <th ><?=$resultado['exemplo'];?></th>
-                            <th ><?=$resultado['exercicioInterativo'];?></th>
+                            <th ><?=$result['nome'];?></th>
+                            <th ><?=$result['texto'];?></th>
+                            <th ><?=$result['videoAula'];?></th>
+                            <th ><?=$result['exemplo'];?></th>
+                            <th ><?=$result['exercicioInterativo'];?></th>
 
-                            <th><?= $resultado['minPreco'] == $resultado['maxPreco'] ? "R$".$resultado['minPreco'].",00" : "R$" . $resultado['minPreco'] . ",00 - " ."R$" .$resultado['maxPreco'].",00";?></th>
+                            <th><?= $result['minPreco'] == $result['maxPreco'] ? "R$".$result['minPreco'].",00" : "R$" . $result['minPreco'] . ",00 - " ."R$" .$result['maxPreco'].",00";?></th>
 
-                            <th ><?=$resultado['cursoLivre'];?></th>
-                            <th ><?=$resultado['tempoDefinido'];?></t>
-                            <th ><?=$resultado['inicioDefinido'];?></th>
+                            <th ><?=$result['cursoLivre'];?></th>
+                            <th ><?=$result['tempoDefinido'];?></t>
+                            <th ><?=$result['inicioDefinido'];?></th>
 
-                            <th ><?=$resultado['andOff'];?></th>
-                            <th ><?=$resultado['andOn'];?></th>
-                            <th ><?=$resultado['iosOff'];?></th>
-                            <th ><?=$resultado['iosOn'];?></th>
-                            <th ><?=$resultado['desktopOff'];?></th>
-                            <th ><?=$resultado['desktopOn'];?></th>
+                            <th ><?=$result['andOff'];?></th>
+                            <th ><?=$result['andOn'];?></th>
+                            <th ><?=$result['iosOff'];?></th>
+                            <th ><?=$result['iosOn'];?></th>
+                            <th ><?=$result['desktopOff'];?></th>
+                            <th ><?=$result['desktopOn'];?></th>
 
-                            <th ><?=$resultado['selecaoNivel'];?></th>
-                            <th ><?=$resultado['professor'];?></th>
-                            <th ><?=$resultado['comunicacaoAlunos'];?></th>
+                            <th ><?=$result['selecaoNivel'];?></th>
+                            <th ><?=$result['professor'];?></th>
+                            <th ><?=$result['comunicacaoAlunos'];?></th>
 
-                            <th><?=$resultado['rate'];?></th>
+                            <th><?=$result['rate'];?></th>
                         </tr>
                     <?php } ?>
                     </tbody>
@@ -119,4 +119,4 @@ $top_cursos = $_SESSION['top_cursos_idioma'];
     </body>
 </html>
 
-<?php include_once 'rodape_modelo.php'; ?>
+<?php include_once 'footer.php'; ?>

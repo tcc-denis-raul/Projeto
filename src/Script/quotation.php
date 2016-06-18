@@ -1,7 +1,7 @@
 <?php
-class Cotacao
+class Quotation
 {
-    public function getDolar()
+    public function Dolar()
     {
         if (!$fp = fopen("http://dolarhoje.com/cotacao.txt", "r")) {
             echo "Erro ao abrir a página de cotação";

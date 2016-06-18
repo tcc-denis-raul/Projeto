@@ -2,7 +2,7 @@
 class Configuration 
 {
 	public function readConFile($field) {
-		$inf = file_get_contents("../../paloma.json");
+		$inf = file_get_contents("/etc/paloma.json");
 		$dec_inf = json_decode($inf, true);
 		return $dec_inf[$field];
 	}

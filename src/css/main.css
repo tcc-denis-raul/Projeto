@@ -806,16 +806,16 @@ button.index:focus,
 }
 /* fim top_menu_modelo.php*/
 
-/* questionario.php */
-.questionario div h3, form div div label{
+/* survey.php */
+.survey div h3, form div div label{
     color: white;
 }
 
-.questionario form div div {
+.survey form div div {
     margin-left: 25%;
 }
 
-/* fim questionario.php*/
+/* fim survey.php*/
 
 /* perfil.php */
 .panel {
@@ -943,7 +943,7 @@ button.index:focus,
         margin-top: 60px;
     }
 
-    .questionario form div div {
+    .survey form div div {
         margin-left: auto;
     }
 }
@@ -972,7 +972,7 @@ button.index:focus,
         margin-top: -22px;
     }
 
-    .questionario form div div {
+    .survey form div div {
         margin-left: auto;
     }
 }
