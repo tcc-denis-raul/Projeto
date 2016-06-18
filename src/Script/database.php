@@ -80,6 +80,38 @@ class DataBase extends Configuration
         }
     }
 
+    public function findCustomCourses($inf) 
+    {
+        $dbname                 = $this->getDBName();
+        $collection             = $this->getCollection("custom_courses");
+        $mgoclient              = new MongoClient();
+        $db                     = $mgoclient->$dbname;
+        return $db->$collection->findOne($inf);
+    }
+
+    public function insertCustomCourses($inf)
+    {
+        $dbname                 = $this->getDBName();
+        $collection             = $this->getCollection("custom_courses");
+        $mgoclient              = new MongoClient();
+        $db                     = $mgoclient->$dbname;
+        try {
+            $db->$collection->insert($inf);
+        } catch (MongoDuplicateKeyException $e) {
+            try {
+                $email = $inf["email"];
+                unset($inf["email"]);
+                unset($inf["_id"]);
+                $db->$collection->update(
+                    array("email" => $email),
+                    array('$set' => $inf)
+                );
+            } catch (Exception $e) {
+                return 0;
+            }
+        }
+        return 1;
+    }
 
 
 

@@ -17,8 +17,8 @@ session_start();
 
 <body>
     
-    <section class="hero2 questionario">
-        <?php include 'top_menu_modelo.php'; ?>
+    <section class="hero2 survey">
+        <?php include 'top_bar.php'; ?>
         
         <div>
             <h3 align="center">Escolha aqui as opções para seu curso</h3>
@@ -26,11 +26,11 @@ session_start();
         <br>
         
         <!-- Opções Questionário -->
-        <form action="Script/caract_bd.php" method="post">
+        <form action="Script/attribute_to_bd.php" method="post">
             <div class="row">
                 <div class="medium-6 columns">
                     <label>Curso baseado em:</label>
-                    <select name="baseado">
+                    <select name="based">
                         <option value="" selected="selected"></option>>
                         <option value="texto">Textos</option>
                         <option value="videoAula">Video Aula</option>
@@ -42,7 +42,7 @@ session_start();
             <div class="row">
                 <div class="medium-6 columns">
                     <label>Preço:</label>
-                    <select name="preco">
+                    <select name="price">
                         <option value="" selected="selected"></option>>
                         <option value="gratis">Grátis</option>
                         <option value="ate30">Até 30 reais</option>
@@ -56,7 +56,7 @@ session_start();
             <div class="row">
                 <div class="medium-6 columns">
                     <label>Dinâmica:</label>
-                    <select name="dinamica">
+                    <select name="dynamic">
                         <option value="" selected="selected"></option>>
                         <option value="cursoLivre">Curso Livre</option>
                         <option value="tempoDefinido">Tempo de Curso Definido</option>
@@ -67,7 +67,7 @@ session_start();
             <div class="row">
                 <div class="medium-6 columns">
                     <label>Plataforma:</label>
-                        <select name="plataforma">
+                        <select name="platform">
                             <option value="" selected="selected"></option>>
                             <option value="andOff">Android - Offline</option>
                             <option value="andOn">Android - Online</option>
@@ -105,4 +105,4 @@ session_start();
 
 </html>
 
-<?php include 'rodape_modelo.php'; ?>
+<?php include 'footer.php'; ?>

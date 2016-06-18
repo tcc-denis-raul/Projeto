@@ -1,9 +1,9 @@
 <?php 
-include_once "Script/bd.php";
+include_once "Script/database.php";
 session_start();
 $email = $_SESSION['email'];
-$bd = new BD;
-$caract = $bd->getCustomCurses(array("email" => $email));
+$db = new DataBase;
+$caract = $db->findCustomCourses(array("email" => $email));
 ?>
 <!-- Lista todos os cursos presente no banco de dados -->
 <!doctype html>
@@ -21,8 +21,8 @@ $caract = $bd->getCustomCurses(array("email" => $email));
 
 <body>
     
-    <section class="hero2 questionario">
-        <?php include 'top_menu_modelo.php'; ?>
+    <section class="hero2 survey">
+        <?php include 'top_bar.php'; ?>
         
         <div>
             <h3 align="center">Caracteristicas atuais: </h3>
@@ -152,7 +152,7 @@ $caract = $bd->getCustomCurses(array("email" => $email));
 
     
 
-        <a href="modificar_caracteristicas.php" class="button round index"><span>Modificar</span></a>        
+        <a href="change_attributes.php" class="button round index"><span>Modificar</span></a>        
     </section> 
         <!--    Javascript Files    -->
         <script type="text/javascript" src="js/jquery.js"></script>
@@ -162,4 +162,4 @@ $caract = $bd->getCustomCurses(array("email" => $email));
 
 </html>
 
-<?php include 'rodape_modelo.php'; ?>
+<?php include 'footer.php'; ?>
